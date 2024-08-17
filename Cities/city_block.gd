@@ -1,4 +1,5 @@
 extends Node2D
+class_name CityBlock
 
 # TODO: add HP
 
