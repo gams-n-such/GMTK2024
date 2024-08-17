@@ -1,3 +1,6 @@
-[gd_scene format=3 uid="uid://dm868pfvoveve"]
+[gd_scene load_steps=2 format=3 uid="uid://dm868pfvoveve"]
+
+[ext_resource type="Script" path="res://Loot/pickup_base.gd" id="1_sw0ip"]
 
 [node name="PickupBase" type="Node2D"]
+script = ExtResource("1_sw0ip")

@@ -1,6 +1,8 @@
-extends Node
+class_name PickupBase
 
-# TODO: store drop tables and drop items with set chances
+extends Node2D
+
+# TODO: implement basic "on pickup" logic and child classes
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

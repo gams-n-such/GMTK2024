@@ -1,6 +1,6 @@
-extends Node
+extends Node2D
 
-# TODO: store drop tables and drop items with set chances
+# TODO: spawn player
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

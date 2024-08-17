@@ -1,6 +1,6 @@
-extends Node
+extends Node2D
 
-# TODO: store drop tables and drop items with set chances
+# TODO: this object is for marking available slots to put new city blocks into. Only relevant for players
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
