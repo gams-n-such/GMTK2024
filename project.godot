@@ -18,6 +18,15 @@ config/icon="res://icon.svg"
 
 enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg")
 
+[layer_names]
+
+2d_physics/layer_1="Player"
+2d_physics/layer_2="Enemy"
+2d_physics/layer_3="Projectile"
+2d_physics/layer_4="Pickups"
+2d_physics/layer_5="Destructibles"
+2d_physics/layer_6="Walls"
+2d_physics/layer_7="Triggers"
 [input]
 
 up={

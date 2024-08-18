@@ -15,10 +15,10 @@ func _process(delta: float) -> void:
 
 
 func tick_rotation(delta: float) -> void:
-	if target != null:
+	if target != null and rotation_speed_degrees > 0.0:
 		var cur_forward : Vector2 = Vector2.from_angle(global_rotation)
 		var target_direction : Vector2 = global_position.direction_to(target.global_position)
-		var delta_rotation_deg : float = cur_forward.angle_to(target_direction)
+		var delta_rotation_deg : float = rad_to_deg(cur_forward.angle_to(target_direction))
 		var max_rotation_deg : float = rotation_speed_degrees * delta
-		clampf(delta_rotation_deg, -max_rotation_deg, max_rotation_deg)
+		delta_rotation_deg = clampf(delta_rotation_deg, -max_rotation_deg, max_rotation_deg)
 		global_rotation_degrees += delta_rotation_deg

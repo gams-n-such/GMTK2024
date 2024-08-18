@@ -9,3 +9,7 @@ script = ExtResource("1_0bx1k")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_nywbw")
+
+[node name="DeathTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+one_shot = true
