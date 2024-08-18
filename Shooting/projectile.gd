@@ -1,6 +1,7 @@
 class_name Projectile
 extends RigidBody2D
 
+@export var config : ProjectileConfig
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
