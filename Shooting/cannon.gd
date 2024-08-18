@@ -101,6 +101,8 @@ func _on_series_ended() -> void:
 
 func spawn_projectile() -> void:
 	var projectile : Projectile = config.projectile.instantiate()
+	# FIXME: set proper instigator (character?)
+	projectile.instigator = self
 	# FIXME: revisit projectile spawning
 	projectile.position = %Muzzle.global_position
 	projectile.rotation = %Muzzle.global_rotation
