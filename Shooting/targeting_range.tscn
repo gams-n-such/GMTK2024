@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bky7rgyyp47bh"]
+
+[ext_resource type="Script" path="res://Shooting/targeting_range.gd" id="1_teu1r"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5ur3q"]
+resource_local_to_scene = true
+radius = 200.0
+
+[node name="TargetingRange" type="Area2D"]
+collision_layer = 0
+collision_mask = 3
+monitorable = false
+script = ExtResource("1_teu1r")
+range = 200.0
+
+[node name="Circle" type="CollisionShape2D" parent="."]
+unique_name_in_owner = true
+shape = SubResource("CircleShape2D_5ur3q")
