@@ -30,3 +30,7 @@ func _physics_process(delta) -> void:
 		global_rotation_degrees += delta_rotation_deg
 	
 	move_and_slide()
+
+func _move_to(move_dir, rotate_tar):
+	move_direction = move_dir
+	rotate_target = rotate_tar

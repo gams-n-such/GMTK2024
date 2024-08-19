@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://0kk0oi2vvwgs"]
 
+[ext_resource type="PackedScene" uid="uid://ok7vgku781bq" path="res://Player/player_city.tscn" id="2_5gbta"]
 [ext_resource type="PackedScene" uid="uid://s00l0baoakcg" path="res://Game/game_boundary.tscn" id="2_rt7cg"]
-[ext_resource type="PackedScene" uid="uid://dvtjmtn1jfgnc" path="res://Player/player_character.tscn" id="2_vajcn"]
 
 [sub_resource type="Gradient" id="Gradient_y4s5f"]
 offsets = PackedFloat32Array(0.115942, 0.927536)
@@ -121,4 +121,4 @@ texture = SubResource("GradientTexture2D_h2qrw")
 arena_size = Vector2(2560, 2560)
 wall_thickness = 50.0
 
-[node name="PlayerCharacter" parent="SceneRoot" instance=ExtResource("2_vajcn")]
+[node name="PlayerCity" parent="SceneRoot" instance=ExtResource("2_5gbta")]

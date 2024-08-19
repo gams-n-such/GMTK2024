@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://ok7vgku781bq"]
+
+[ext_resource type="PackedScene" uid="uid://dhljesxsbvebm" path="res://Cities/city.tscn" id="1_oym16"]
+[ext_resource type="Script" path="res://Player/player_movement2.gd" id="2_2xs63"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_k7efe"]
+
+[node name="PlayerCity" instance=ExtResource("1_oym16")]
+
+[node name="Body" parent="." index="0"]
+script = ExtResource("2_2xs63")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Body" index="1"]
+shape = SubResource("CircleShape2D_k7efe")
+
+[node name="Camera2D" type="Camera2D" parent="Body" index="2"]
