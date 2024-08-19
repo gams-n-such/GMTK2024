@@ -8,6 +8,8 @@
 [node name="PlayerCity" instance=ExtResource("1_oym16")]
 
 [node name="Body" parent="." index="0"]
+collision_layer = 1
+collision_mask = 126
 script = ExtResource("2_2xs63")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Body" index="1"]
