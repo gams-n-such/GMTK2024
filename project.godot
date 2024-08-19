@@ -61,6 +61,11 @@ click={
 2d_physics/layer_6="Walls"
 2d_physics/layer_7="Triggers"
 
+[physics]
+
+2d/default_gravity=0.0
+2d/default_gravity_vector=Vector2(0, 0)
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
