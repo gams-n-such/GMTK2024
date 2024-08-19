@@ -1,0 +1,17 @@
+[gd_scene load_steps=5 format=3 uid="uid://camiyb0q1a1p7"]
+
+[ext_resource type="PackedScene" uid="uid://cm03as56e30f0" path="res://Shooting/cannon.tscn" id="1_irvkk"]
+[ext_resource type="PackedScene" uid="uid://7s2qmlobuxbn" path="res://Cannons/Rocket/rocket_projectile.tscn" id="2_e7n58"]
+[ext_resource type="Script" path="res://Shooting/cannon_config.gd" id="3_s8le6"]
+
+[sub_resource type="Resource" id="Resource_q1265"]
+script = ExtResource("3_s8le6")
+turning_speed = 720.0
+range = 1200.0
+projectile = ExtResource("2_e7n58")
+bullets_per_series = 1
+reload_between_shots = 0.0
+reload_between_series = 7.0
+
+[node name="Cannon" instance=ExtResource("1_irvkk")]
+config = SubResource("Resource_q1265")

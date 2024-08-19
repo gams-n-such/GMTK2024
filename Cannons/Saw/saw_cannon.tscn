@@ -1,0 +1,17 @@
+[gd_scene load_steps=5 format=3 uid="uid://dlpjue6gegmqd"]
+
+[ext_resource type="PackedScene" uid="uid://cm03as56e30f0" path="res://Shooting/cannon.tscn" id="1_qfbas"]
+[ext_resource type="PackedScene" uid="uid://bkua0nh0qosed" path="res://Cannons/Saw/saw_projectile.tscn" id="2_7bqix"]
+[ext_resource type="Script" path="res://Shooting/cannon_config.gd" id="3_ii1wf"]
+
+[sub_resource type="Resource" id="Resource_4i7us"]
+script = ExtResource("3_ii1wf")
+turning_speed = 1420.0
+range = 298.0
+projectile = ExtResource("2_7bqix")
+bullets_per_series = 1
+reload_between_shots = 0.0
+reload_between_series = 1.0
+
+[node name="Cannon" instance=ExtResource("1_qfbas")]
+config = SubResource("Resource_4i7us")

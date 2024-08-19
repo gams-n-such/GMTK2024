@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://bkua0nh0qosed"]
+
+[ext_resource type="PackedScene" uid="uid://7l5y64gguvt8" path="res://Shooting/projectile.tscn" id="1_p5k05"]
+[ext_resource type="Script" path="res://Shooting/projectile_config.gd" id="2_cmy46"]
+
+[sub_resource type="Resource" id="Resource_xi0f3"]
+script = ExtResource("2_cmy46")
+speed = 1200.0
+damage = 10.0
+radius = 128.0
+
+[node name="Projectile" instance=ExtResource("1_p5k05")]
+config = SubResource("Resource_xi0f3")
