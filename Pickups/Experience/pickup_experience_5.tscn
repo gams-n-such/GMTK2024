@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://b1ht3wltpsjp0"]
+
+[ext_resource type="PackedScene" uid="uid://6nsi10fyhlrb" path="res://Pickups/Experience/pickup_experience.tscn" id="1_h4srj"]
+[ext_resource type="Texture2D" uid="uid://bundyoa872noe" path="res://Pickups/Experience/gears_white.svg" id="2_asfi4"]
+
+[node name="PickupExp" instance=ExtResource("1_h4srj")]
+experience_amount = 5
+
+[node name="Sprite2D" parent="." index="1"]
+self_modulate = Color(1, 0, 0, 1)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_asfi4")
