@@ -4,7 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://bcvuql87haw7y" path="res://Cities/hexagon_horizontal_white.svg" id="2_eonky"]
 [ext_resource type="Script" path="res://Attributes/attribute.gd" id="3_64t7v"]
 
-[node name="CityBlock" type="Node2D"]
+[node name="CityBlock" type="CollisionPolygon2D"]
+polygon = PackedVector2Array(-57, 0, -28, -51, 29, -51, 58, 0, 29, 50, -27, 50)
 script = ExtResource("1_37cqh")
 
 [node name="CityBlockArtPlaceholder" type="Sprite2D" parent="."]
@@ -15,8 +16,3 @@ texture = ExtResource("2_eonky")
 [node name="Health" type="Node" parent="."]
 unique_name_in_owner = true
 script = ExtResource("3_64t7v")
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(-57, 0, -28, -51, 29, -51, 58, 0, 29, 50, -27, 50)
-
-[connection signal="value_changed" from="Health" to="." method="_on_health_value_changed"]

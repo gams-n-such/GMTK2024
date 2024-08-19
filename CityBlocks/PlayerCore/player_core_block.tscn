@@ -5,4 +5,4 @@
 
 [node name="CityBlock" instance=ExtResource("1_0whol")]
 
-[node name="Cannon" parent="." index="3" instance=ExtResource("2_pkc60")]
+[node name="Cannon" parent="." index="2" instance=ExtResource("2_pkc60")]
