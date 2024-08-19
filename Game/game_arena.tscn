@@ -2,8 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://druumpy3weu4j" path="res://Game/game_manager.tscn" id="1_62vyi"]
 [ext_resource type="Script" path="res://Game/game_arena.gd" id="1_h22ja"]
-[ext_resource type="PackedScene" uid="uid://s00l0baoakcg" path="res://Game/game_boundary.tscn" id="2_tlalu"]
-[ext_resource type="PackedScene" uid="uid://ok7vgku781bq" path="res://Player/player_city.tscn" id="4_64c1x"]
+[ext_resource type="PackedScene" path="res://Game/game_boundary.tscn" id="2_tlalu"]
+[ext_resource type="PackedScene" uid="uid://dd0noa2k8ss5q" path="res://Player/player_city.tscn" id="4_64c1x"]
 
 [sub_resource type="Gradient" id="Gradient_y4s5f"]
 offsets = PackedFloat32Array(0.115942, 0.927536)
