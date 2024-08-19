@@ -1,5 +1,9 @@
 extends Control
 
+@export var gameplay_scene : PackedScene
+@export var tutorial_scene : PackedScene
+@export var options_scene : PackedScene
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -12,15 +16,15 @@ func _process(_delta):
 
 
 func _on_start_pressed():
-	pass # Replace with function body.
+	get_tree().change_scene_to_packed(gameplay_scene)
 
 
 func _on_how_to_play_pressed():
-	pass # Replace with function body.
+	add_child(tutorial_scene.instantiate())
 
 
 func _on_options_pressed():
-	pass # Replace with function body.
+	add_child(options_scene.instantiate())
 
 
 func _on_quit_pressed():
