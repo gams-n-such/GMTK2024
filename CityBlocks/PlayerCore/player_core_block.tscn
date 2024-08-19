@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://ddc653ndo7epr"]
+
+[ext_resource type="PackedScene" uid="uid://ckgbyjxbmxc80" path="res://Cities/city_block.tscn" id="1_0whol"]
+[ext_resource type="PackedScene" uid="uid://sewcfet6gw5k" path="res://CityBlocks/PlayerCore/player_core_cannon.tscn" id="2_pkc60"]
+
+[node name="CityBlock" instance=ExtResource("1_0whol")]
+
+[node name="Cannon" parent="." index="3" instance=ExtResource("2_pkc60")]
