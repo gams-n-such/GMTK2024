@@ -1,0 +1,58 @@
+[gd_scene load_steps=5 format=3 uid="uid://bta3w85fgsee8"]
+
+[ext_resource type="Script" path="res://Game/city_hud.gd" id="1_lkqaf"]
+[ext_resource type="Script" path="res://Attributes/attribute_bar.gd" id="2_1mjcm"]
+[ext_resource type="Script" path="res://Attributes/attribute_label.gd" id="2_q6krm"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_efbw1"]
+font_size = 32
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[node name="CityHUD" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lkqaf")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.164
+anchor_bottom = 0.083
+offset_right = 3.07199
+offset_bottom = -2.784
+
+[node name="VSplitContainer" type="VSplitContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+split_offset = 30
+dragger_visibility = 2
+
+[node name="ExperienceBar" type="ProgressBar" parent="VSplitContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 1
+show_percentage = false
+script = ExtResource("2_1mjcm")
+
+[node name="Control" type="Control" parent="VSplitContainer"]
+layout_mode = 2
+
+[node name="LevelLabel" type="Label" parent="VSplitContainer/Control"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 77.0
+offset_bottom = 33.0
+text = "Level: 25"
+label_settings = SubResource("LabelSettings_efbw1")
+script = ExtResource("2_q6krm")
