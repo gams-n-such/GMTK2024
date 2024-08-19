@@ -138,15 +138,15 @@ func remove_city_block_at_spot(spot: Vector2i):
 
 # returns array[[spot: Vector2i, global_position: Vector2], ...]
 func get_available_spots():
+	print(get_parent().rotation)
 	var result: Array[Array]
 	for spot in available_spots:
-		result.push_back([spot, spot_to_position(spot) + self.global_position])
+		result.push_back([spot, spot_to_position(spot).rotated(self.global_rotation) + self.global_position])
 	return result
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

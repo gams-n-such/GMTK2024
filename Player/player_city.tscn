@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://ok7vgku781bq"]
+[gd_scene load_steps=6 format=3 uid="uid://dd0noa2k8ss5q"]
 
 [ext_resource type="PackedScene" uid="uid://dhljesxsbvebm" path="res://Cities/city.tscn" id="1_oym16"]
 [ext_resource type="Script" path="res://Player/player_movement2.gd" id="2_2xs63"]
 [ext_resource type="Script" path="res://Player/player_city.gd" id="2_c1uh5"]
 [ext_resource type="Script" path="res://Attributes/attribute.gd" id="4_2at55"]
+[ext_resource type="PackedScene" uid="uid://c5hsryw5gaj8i" path="res://Cities/hex_grid.tscn" id="4_pgx6t"]
 
 [node name="PlayerCity" instance=ExtResource("1_oym16")]
 script = ExtResource("2_c1uh5")
@@ -14,6 +15,8 @@ collision_mask = 250
 script = ExtResource("2_2xs63")
 
 [node name="Camera2D" type="Camera2D" parent="Body" index="1"]
+
+[node name="HexGrid" parent="Body" index="2" instance=ExtResource("4_pgx6t")]
 
 [node name="Level" type="Node" parent="." index="1"]
 script = ExtResource("4_2at55")

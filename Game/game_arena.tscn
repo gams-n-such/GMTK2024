@@ -1,8 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://ddk4jokuwqyqj"]
+[gd_scene load_steps=7 format=3 uid="uid://ctki8vhvpk2hb"]
 
 [ext_resource type="PackedScene" uid="uid://druumpy3weu4j" path="res://Game/game_manager.tscn" id="1_62vyi"]
 [ext_resource type="Script" path="res://Game/game_arena.gd" id="1_h22ja"]
-[ext_resource type="PackedScene" uid="uid://s00l0baoakcg" path="res://Game/game_boundary.tscn" id="2_tlalu"]
+[ext_resource type="PackedScene" path="res://Game/game_boundary.tscn" id="2_tlalu"]
 [ext_resource type="PackedScene" uid="uid://dvtjmtn1jfgnc" path="res://Player/player_character.tscn" id="3_fyb7p"]
 
 [sub_resource type="Gradient" id="Gradient_y4s5f"]

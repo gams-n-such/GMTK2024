@@ -1,7 +1,7 @@
 extends City
 
-
 func _ready() -> void:
+	super.setup_grid(Vector2i(15, 15), $Body/Core)
 	pass
 
 

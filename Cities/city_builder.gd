@@ -2,7 +2,7 @@ extends Node2D
 class_name CityBuilder
 
 @onready var camera: Camera2D = get_viewport().get_camera_2d()
-@onready var hex_grid: HexGrid
+@onready var city: City
 @onready var cards: Array[CityBlockCard]
 @onready var selected_block: CityBlock
 @onready var preview: Sprite2D
@@ -10,9 +10,9 @@ class_name CityBuilder
 @onready var bounding_box: Vector4
 var available_positions: Array[Array]
 
-func setup(blocks: Array[CityBlock], grid: HexGrid):
-	hex_grid = grid
-	available_positions = hex_grid.get_available_spots()
+func setup(blocks: Array[CityBlock], grid: City):
+	city = grid
+	available_positions = city.get_available_spots()
 	for spot in available_positions:
 		bounding_box[0] = min(bounding_box[0], spot[1].x) # min x
 		bounding_box[1] = max(bounding_box[1], spot[1].x) # max x
@@ -37,23 +37,14 @@ func card_pressed(block: CityBlock):
 	print(block.name)
 
 func _ready():
-	#print("hello")
-	#preview = Sprite2D.new()
-	#preview.texture = city_block_preview_texture
-	#self.add_child(preview)
-	#print(preview.name)
-	#current_snap_spot = null
-	#hex_grid = preload("res://Cities/hex_grid.tscn").instantiate()
-	#self.add_child(hex_grid)
-	#hex_grid.setup_grid(Vector2i(8, 8), load("res://Cities/city_block.tscn").instantiate())
-	#camera.global_position = hex_grid.origin.global_position
-	#available_positions = hex_grid.get_available_spots()
-	#reset_available_positions()
+	process_mode = PROCESS_MODE_ALWAYS
+	get_tree().paused = true
 	pass
 
 func _input(event):
 	if event is InputEventMouseMotion and preview != null:
 		current_snap_spot = find_closest_available_spot()
+		reset_preview_rotation()
 		if current_snap_spot != null:
 			preview.global_position = current_snap_spot[1]
 		else:
@@ -62,8 +53,9 @@ func _input(event):
 	if event is InputEventMouseButton:
 		event = event as InputEventMouseButton
 		if event.button_index == MOUSE_BUTTON_LEFT and event.is_released() and current_snap_spot != null:
-			hex_grid.add_city_block_spot(current_snap_spot[0], selected_block)
+			city.add_city_block_spot(current_snap_spot[0], selected_block)
 			reset_available_positions()
+			get_tree().paused = false
 			self.get_parent().remove_child(self)
 			self.queue_free()
 			
@@ -73,6 +65,12 @@ func _input(event):
 				camera.zoom *= Vector2(.5, .5)
 			if event.key_label == KEY_PLUS:
 				camera.zoom *= Vector2(2, 2)
+			if event.keycode == KEY_E:
+				selected_block.rotate(PI / 3)
+				reset_preview_rotation()
+			if event.keycode == KEY_Q:
+				selected_block.rotate(-PI / 3)
+				reset_preview_rotation()
 
 func find_closest_available_spot():
 	var closest:= 0 
@@ -81,7 +79,7 @@ func find_closest_available_spot():
 		if (mouse_pos - available_positions[i][1]).length() < (mouse_pos - available_positions[closest][1]).length():
 			closest = i
 	
-	if available_positions.is_empty() or (available_positions[closest][1] - mouse_pos).length() > hex_grid.outer_radius:
+	if available_positions.is_empty() or (available_positions[closest][1] - mouse_pos).length() > city.outer_radius:
 		return null
 	
 	return available_positions[closest]
@@ -91,10 +89,15 @@ func reset_available_positions():
 		if child != preview:
 			self.remove_child(child)
 	
-	available_positions = hex_grid.get_available_spots()
+	available_positions = city.get_available_spots()
+
+func reset_preview_rotation():
+	if current_snap_spot != null: preview.rotation = city.get_node("Body").global_rotation + selected_block.global_rotation
+	else: preview.rotation = selected_block.global_rotation
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+
 	var input_direction: Vector2 = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	camera.translate(input_direction * 10)
 	camera.global_position.x = clampf(camera.global_position.x, bounding_box[0], bounding_box[1])
