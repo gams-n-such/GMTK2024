@@ -19,6 +19,10 @@ func _on_start_pressed():
 	get_tree().change_scene_to_packed(gameplay_scene)
 
 
+func _on_test_pressed() -> void:
+	get_tree().change_scene_to_file("res://Arenas/Test/test_arena.tscn")
+
+
 func _on_how_to_play_pressed():
 	add_child(tutorial_scene.instantiate())
 
