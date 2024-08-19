@@ -1,4 +1,4 @@
-class_name PlayerData
+class_name City
 extends Node
 
 
