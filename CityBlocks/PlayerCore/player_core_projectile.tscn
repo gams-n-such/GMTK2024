@@ -9,7 +9,7 @@ speed = 500.0
 damage = 10.0
 damage_radius = 0.0
 radius = 10.0
-max_range = 200.0
+max_range = 800.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xe23o"]
 resource_local_to_scene = true

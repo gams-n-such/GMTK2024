@@ -44,7 +44,7 @@ func _on_target_hit(hit_target : Node) -> void:
 		_deal_direct_damage(hit_target)
 	# TODO: VFX, SFX
 	# TODO: await animation end
-	await get_tree().create_timer(0.2).timeout
+	#await get_tree().create_timer(0.2).timeout
 	queue_free()
 
 func _deal_aoe_damage() -> void:
@@ -60,4 +60,5 @@ func _deal_aoe_damage() -> void:
 		_deal_direct_damage(target)
 
 func _deal_direct_damage(target : Node) -> void:
-	target.take_damage(config.damage, instigator, self)
+	if target.has_method("take_damage"):
+		target.take_damage(config.damage, instigator, self)

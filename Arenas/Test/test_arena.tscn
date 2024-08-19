@@ -129,43 +129,52 @@ wall_thickness = 50.0
 [node name="DestructibleObjects" type="Node2D" parent="SceneRoot"]
 
 [node name="DestructibleObject" parent="SceneRoot/DestructibleObjects" instance=ExtResource("3_3qjjc")]
-position = Vector2(520, -708)
+position = Vector2(391, -218)
 
 [node name="DestructibleObject2" parent="SceneRoot/DestructibleObjects" instance=ExtResource("3_3qjjc")]
-position = Vector2(600, 695)
+position = Vector2(-554, 854)
 
 [node name="DestructibleObject3" parent="SceneRoot/DestructibleObjects" instance=ExtResource("3_3qjjc")]
-position = Vector2(719, -147)
+position = Vector2(-851, 545)
 
-[node name="DestructibleObject4" parent="SceneRoot/DestructibleObjects" instance=ExtResource("4_7f4ic")]
-position = Vector2(-632, 500)
+[node name="DestructibleObject4" parent="SceneRoot/DestructibleObjects" instance=ExtResource("3_3qjjc")]
+position = Vector2(-932, -565)
 
-[node name="DestructibleObject5" parent="SceneRoot/DestructibleObjects" instance=ExtResource("4_7f4ic")]
-position = Vector2(-646, -665)
+[node name="DestructibleObject5" parent="SceneRoot/DestructibleObjects" instance=ExtResource("3_3qjjc")]
+position = Vector2(-508, -854)
 
-[node name="DestructibleObject6" parent="SceneRoot/DestructibleObjects" instance=ExtResource("4_7f4ic")]
-position = Vector2(-494, -874)
+[node name="DestructibleObject6" parent="SceneRoot/DestructibleObjects" instance=ExtResource("5_lvn8i")]
+position = Vector2(602, 825)
 
 [node name="DestructibleObject7" parent="SceneRoot/DestructibleObjects" instance=ExtResource("5_lvn8i")]
-position = Vector2(962, -874)
+position = Vector2(831, 414)
 
 [node name="DestructibleObject8" parent="SceneRoot/DestructibleObjects" instance=ExtResource("5_lvn8i")]
-position = Vector2(-674, -28)
+position = Vector2(68, 464)
 
 [node name="DestructibleObject9" parent="SceneRoot/DestructibleObjects" instance=ExtResource("5_lvn8i")]
-position = Vector2(25, -736)
+position = Vector2(-12, 1104)
 
 [node name="DestructibleObject10" parent="SceneRoot/DestructibleObjects" instance=ExtResource("5_lvn8i")]
-position = Vector2(-313, 1104)
+position = Vector2(-923, -264)
 
 [node name="DestructibleObject11" parent="SceneRoot/DestructibleObjects" instance=ExtResource("5_lvn8i")]
-position = Vector2(-1088, 1033)
+position = Vector2(-605, -578)
 
-[node name="DestructibleObject12" parent="SceneRoot/DestructibleObjects" instance=ExtResource("3_3qjjc")]
-position = Vector2(-1098, 339)
+[node name="DestructibleObject12" parent="SceneRoot/DestructibleObjects" instance=ExtResource("4_7f4ic")]
+position = Vector2(497, -773)
 
-[node name="DestructibleObject13" parent="SceneRoot/DestructibleObjects" instance=ExtResource("5_lvn8i")]
-position = Vector2(-969, -908)
+[node name="DestructibleObject13" parent="SceneRoot/DestructibleObjects" instance=ExtResource("4_7f4ic")]
+position = Vector2(-936, 240)
 
 [node name="DestructibleObject14" parent="SceneRoot/DestructibleObjects" instance=ExtResource("4_7f4ic")]
-position = Vector2(919, 1019)
+position = Vector2(102, -485)
+
+[node name="DestructibleObject15" parent="SceneRoot/DestructibleObjects" instance=ExtResource("4_7f4ic")]
+position = Vector2(1136, -934)
+
+[node name="DestructibleObject16" parent="SceneRoot/DestructibleObjects" instance=ExtResource("4_7f4ic")]
+position = Vector2(920, 1159)
+
+[node name="DestructibleObject17" parent="SceneRoot/DestructibleObjects" instance=ExtResource("4_7f4ic")]
+position = Vector2(-957, -1048)
