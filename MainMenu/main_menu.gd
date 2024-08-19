@@ -1,8 +1,8 @@
 extends Control
 
-@export var gameplay_scene : PackedScene
-@export var tutorial_scene : PackedScene
-@export var options_scene : PackedScene
+@onready var gameplay_scene : PackedScene = load("res://Game/game_arena.tscn")
+@onready var tutorial_scene : PackedScene = load("res://MainMenu/how_to_play.tscn")
+@onready var options_scene : PackedScene
 
 
 # Called when the node enters the scene tree for the first time.
@@ -24,7 +24,7 @@ func _on_test_pressed() -> void:
 
 
 func _on_how_to_play_pressed():
-	add_child(tutorial_scene.instantiate())
+	get_tree().change_scene_to_packed(tutorial_scene)
 
 
 func _on_options_pressed():
