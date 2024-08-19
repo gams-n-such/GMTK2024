@@ -2,11 +2,11 @@ extends Node
 
 
 func _ready() -> void:
-	pass # Replace with function body.
+	%HUD.player = %PlayerCity
+	%PlayerCity.destroyed.connect(_on_player_city_destroyed)
 
-
-func _process(delta: float) -> void:
-	pass
+func _on_player_city_destroyed() -> void:
+	game_over(false)
 
 func game_over(win : bool) -> void:
 	$SceneRoot.process_mode = Node.PROCESS_MODE_DISABLED

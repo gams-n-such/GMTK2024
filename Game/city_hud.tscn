@@ -56,3 +56,5 @@ offset_bottom = 33.0
 text = "Level: 25"
 label_settings = SubResource("LabelSettings_efbw1")
 script = ExtResource("2_q6krm")
+attribute_name = "Level"
+show_attribute_name = true
