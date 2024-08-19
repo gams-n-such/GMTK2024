@@ -4,6 +4,7 @@ class_name HexGrid
 @export var outer_radius: float = 128 / 2
 var inner_radius: float = sqrt(3) / 2 * outer_radius
 var origin: CityBlock
+var origin_offset: Vector2 = Vector2(0, 0)
 var grid_size: Vector2i
 var grid: Array[Array]
 var available_spots: Array[Vector2i]
@@ -18,11 +19,12 @@ func setup_grid(size: Vector2i, starting_block: CityBlock):
 	origin = starting_block
 	#var middle = Vector2i(0, 0)
 	var middle = Vector2i(grid_size.x / 2, grid_size.y / 2)
+	origin_offset = spot_to_position(middle)
 	available_spots.push_back(middle)
 	add_city_block_spot(middle, starting_block)
 
 func spot_to_position(spot: Vector2i):
-	return Vector2(spot.y * outer_radius * 1.5, (spot.x + spot.y * 0.5 - spot.y / 2) * inner_radius * 2)
+	return Vector2(spot.y * outer_radius * 1.5, (spot.x + spot.y * 0.5 - spot.y / 2) * inner_radius * 2) - origin_offset
 
 func is_spot_in_bounds(spot: Vector2i):
 	return 0 <= spot.x and spot.x < grid_size.x and 0 <= spot.y and spot.y < grid_size.y
@@ -106,6 +108,8 @@ func remove_city_block_at_spot(spot: Vector2i):
 	grid[spot.y][spot.x] = null
 	block_to_spot.erase(block)
 	self.remove_child(block)
+	block.queue_free()
+	block = null
 	
 	var not_visited = block_to_spot.duplicate()
 	var to_visit: Array[Array]
@@ -127,6 +131,8 @@ func remove_city_block_at_spot(spot: Vector2i):
 		grid[spot.y][spot.x] = null
 		block_to_spot.erase(block)
 		self.remove_child(block)
+		block.queue_free()
+		block = null
 	
 	reset_available_spots()
 

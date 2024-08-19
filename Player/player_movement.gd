@@ -6,9 +6,11 @@ extends CharacterBody2D
 @export var drag : float = 150 
 
 var move_direction : Vector2 = Vector2(0,0)
-var rotate_target : Vector2 = Vector2(0,0)
+var rotate_target = null
 
 func _physics_process(delta):
+	move_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
+	#rotate_target = get_global_mouse_position()
 	if move_direction != null:
 		#var direction : Vector2 = Input.get_vector("left", "right", "up", "down")
 		velocity += move_direction * acceleratin * delta

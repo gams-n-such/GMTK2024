@@ -14,11 +14,10 @@ script = ExtResource("1_l6wak")
 script = ExtResource("1_x613o")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-visible = false
 shape = SubResource("CircleShape2D_aml6t")
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
-visible = false
 texture = ExtResource("2_231t3")
 
-[node name="HexGrid" parent="CharacterBody2D" instance=ExtResource("3_cehvk")]
+[node name="HexGrid" parent="." instance=ExtResource("3_cehvk")]
+unique_name_in_owner = true
