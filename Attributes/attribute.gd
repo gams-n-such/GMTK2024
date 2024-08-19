@@ -1,6 +1,7 @@
 class_name Attribute extends Node
 
 signal value_changed(attribute : Attribute, new_value : float)
+signal range_changed(attribute : Attribute, new_min_value : float, new_max_value : float)
 
 @export var _starting_value : float = 1.0
 
@@ -12,10 +13,21 @@ var base_value : float:
 		_base_value = value
 		recalculate_value()
 
+var _range : Vector2 = Vector2(0.0, 1.0)
 @export var has_min_value : bool = true
-@export var min_value : float = 0.0
+@export var min_value : float:
+	get:
+		return _range.x
+	set(new_value):
+		_range.x = new_value
+		range_changed.emit(self, _range.x, _range.y)
 @export var has_max_value : bool = false
-@export var max_value : float = 1.0
+@export var max_value : float:
+	get:
+		return _range.y
+	set(new_value):
+		_range.y = new_value
+		range_changed.emit(self, _range.x, _range.y)
 
 var _current_value : float = base_value
 var value : float:
@@ -46,7 +58,7 @@ func recalculate_value():
 	if has_min_value:
 		new_value = max(min_value, new_value)
 	if has_max_value:
-		new_value = max(max_value, new_value)
+		new_value = min(max_value, new_value)
 	_current_value = new_value
 	value_changed.emit(self, value)
 

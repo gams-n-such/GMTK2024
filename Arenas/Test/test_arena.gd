@@ -2,8 +2,11 @@ extends Node
 
 var city_builder: CityBuilder = null
 
+@onready var game_config : GameConfig = preload("res://default_game_config.tres")
+
 func _ready():
 	%HUD.player = %PlayerCity
+	%PlayerCity.progression_config = game_config.progression_settings
 
 
 func _input(event):
