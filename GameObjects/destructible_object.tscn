@@ -9,6 +9,7 @@
 script = ExtResource("1_akytg")
 
 [node name="CollisionBox" type="CollisionShape2D" parent="."]
+scale = Vector2(5, 5)
 shape = SubResource("RectangleShape2D_d8q5d")
 
 [node name="Health" type="Node" parent="."]
@@ -16,5 +17,8 @@ unique_name_in_owner = true
 script = ExtResource("2_unyh3")
 _starting_value = 10.0
 max_value = 10.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
 
 [connection signal="value_changed" from="Health" to="." method="_on_health_value_changed"]

@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://bcbc81uscox4j"]
+
+[ext_resource type="PackedScene" uid="uid://dmsekpqphea0h" path="res://GameObjects/destructible_object.tscn" id="1_qxkpy"]
+[ext_resource type="Texture2D" uid="uid://cx7fchabt3yng" path="res://GameObjects/hotel-svgrepo-com.svg" id="2_e4ydf"]
+
+[node name="DestructibleObject" instance=ExtResource("1_qxkpy")]
+
+[node name="Sprite2D" parent="." index="2"]
+texture = ExtResource("2_e4ydf")

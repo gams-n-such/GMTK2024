@@ -1,7 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://0kk0oi2vvwgs"]
+[gd_scene load_steps=8 format=3 uid="uid://0kk0oi2vvwgs"]
 
 [ext_resource type="PackedScene" uid="uid://ok7vgku781bq" path="res://Player/player_city.tscn" id="2_5gbta"]
 [ext_resource type="PackedScene" uid="uid://s00l0baoakcg" path="res://Game/game_boundary.tscn" id="2_rt7cg"]
+[ext_resource type="PackedScene" uid="uid://g453n8bumn6n" path="res://GameObjects/destructible_object_factory.tscn" id="3_3qjjc"]
+[ext_resource type="PackedScene" uid="uid://c47k4nmq3i2cr" path="res://GameObjects/destructible_object_town.tscn" id="4_7f4ic"]
+[ext_resource type="PackedScene" uid="uid://bcbc81uscox4j" path="res://GameObjects/destructible_object_city.tscn" id="5_lvn8i"]
 
 [sub_resource type="Gradient" id="Gradient_y4s5f"]
 offsets = PackedFloat32Array(0.115942, 0.927536)
@@ -122,3 +125,47 @@ arena_size = Vector2(2560, 2560)
 wall_thickness = 50.0
 
 [node name="PlayerCity" parent="SceneRoot" instance=ExtResource("2_5gbta")]
+
+[node name="DestructibleObjects" type="Node2D" parent="SceneRoot"]
+
+[node name="DestructibleObject" parent="SceneRoot/DestructibleObjects" instance=ExtResource("3_3qjjc")]
+position = Vector2(520, -708)
+
+[node name="DestructibleObject2" parent="SceneRoot/DestructibleObjects" instance=ExtResource("3_3qjjc")]
+position = Vector2(600, 695)
+
+[node name="DestructibleObject3" parent="SceneRoot/DestructibleObjects" instance=ExtResource("3_3qjjc")]
+position = Vector2(719, -147)
+
+[node name="DestructibleObject4" parent="SceneRoot/DestructibleObjects" instance=ExtResource("4_7f4ic")]
+position = Vector2(-632, 500)
+
+[node name="DestructibleObject5" parent="SceneRoot/DestructibleObjects" instance=ExtResource("4_7f4ic")]
+position = Vector2(-646, -665)
+
+[node name="DestructibleObject6" parent="SceneRoot/DestructibleObjects" instance=ExtResource("4_7f4ic")]
+position = Vector2(-494, -874)
+
+[node name="DestructibleObject7" parent="SceneRoot/DestructibleObjects" instance=ExtResource("5_lvn8i")]
+position = Vector2(962, -874)
+
+[node name="DestructibleObject8" parent="SceneRoot/DestructibleObjects" instance=ExtResource("5_lvn8i")]
+position = Vector2(-674, -28)
+
+[node name="DestructibleObject9" parent="SceneRoot/DestructibleObjects" instance=ExtResource("5_lvn8i")]
+position = Vector2(25, -736)
+
+[node name="DestructibleObject10" parent="SceneRoot/DestructibleObjects" instance=ExtResource("5_lvn8i")]
+position = Vector2(-313, 1104)
+
+[node name="DestructibleObject11" parent="SceneRoot/DestructibleObjects" instance=ExtResource("5_lvn8i")]
+position = Vector2(-1088, 1033)
+
+[node name="DestructibleObject12" parent="SceneRoot/DestructibleObjects" instance=ExtResource("3_3qjjc")]
+position = Vector2(-1098, 339)
+
+[node name="DestructibleObject13" parent="SceneRoot/DestructibleObjects" instance=ExtResource("5_lvn8i")]
+position = Vector2(-969, -908)
+
+[node name="DestructibleObject14" parent="SceneRoot/DestructibleObjects" instance=ExtResource("4_7f4ic")]
+position = Vector2(919, 1019)
