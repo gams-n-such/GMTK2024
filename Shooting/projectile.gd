@@ -5,16 +5,21 @@ extends RigidBody2D
 
 var instigator : Node = null
 
-var _explosion_circle : CircleShape2D = (%ExplosionShape.shape as CircleShape2D)
+@onready var _collision_circle : CircleShape2D = $ProjectileCollider.shape
+@onready var _explosion_circle : CircleShape2D = %ExplosionShape.shape
 
 func _ready() -> void:
+	_collision_circle.radius = config.radius
 	_explosion_circle.radius = config.damage_radius
-	linear_velocity = Vector2.RIGHT * config.speed
+	linear_velocity = Vector2.from_angle(global_rotation) * config.speed
 	%DeathTimer.start(config.projectile_lifetime)
 	pass
 
+#func _draw() -> void:
+	#draw_line(Vector2.ZERO, Vector2.RIGHT * config.speed, Color.HOT_PINK, 5.0)
+
 func _physics_process(delta: float) -> void:
-	move_and_collide(linear_velocity * delta)
+	#move_and_collide(Vector2.from_angle(global_rotation) * config.speed * delta)
 	pass
 
 func _on_death_timer_timeout() -> void:
