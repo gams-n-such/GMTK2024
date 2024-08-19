@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://ok7vgku781bq"]
+
+[ext_resource type="PackedScene" uid="uid://dhljesxsbvebm" path="res://Cities/city.tscn" id="1_oym16"]
+[ext_resource type="Script" path="res://Player/player_movement2.gd" id="2_2xs63"]
+[ext_resource type="Script" path="res://Player/player_city.gd" id="2_c1uh5"]
+[ext_resource type="Script" path="res://Attributes/attribute.gd" id="4_2at55"]
+
+[node name="PlayerCity" instance=ExtResource("1_oym16")]
+script = ExtResource("2_c1uh5")
+
+[node name="Body" parent="." index="0"]
+collision_layer = 1
+collision_mask = 250
+script = ExtResource("2_2xs63")
+
+[node name="Camera2D" type="Camera2D" parent="Body" index="1"]
+
+[node name="Level" type="Node" parent="." index="1"]
+script = ExtResource("4_2at55")
+min_value = 1.0
+has_max_value = true
+max_value = 50.0
+
+[node name="Experience" type="Node" parent="." index="2"]
+script = ExtResource("4_2at55")
+max_value = 20.0

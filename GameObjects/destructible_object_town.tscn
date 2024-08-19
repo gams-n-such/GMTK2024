@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://c47k4nmq3i2cr"]
+
+[ext_resource type="PackedScene" uid="uid://dmsekpqphea0h" path="res://GameObjects/destructible_object.tscn" id="1_va3yg"]
+[ext_resource type="Texture2D" uid="uid://bpuqwbc2efb80" path="res://GameObjects/tent-svgrepo-com.svg" id="2_eedvj"]
+
+[node name="DestructibleObject" instance=ExtResource("1_va3yg")]
+
+[node name="Sprite2D" parent="." index="2"]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_eedvj")

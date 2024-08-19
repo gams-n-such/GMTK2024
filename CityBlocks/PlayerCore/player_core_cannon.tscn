@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://sewcfet6gw5k"]
+
+[ext_resource type="PackedScene" uid="uid://cm03as56e30f0" path="res://Shooting/cannon.tscn" id="1_tf16g"]
+[ext_resource type="PackedScene" uid="uid://cp7fj7m2xrtb0" path="res://CityBlocks/PlayerCore/player_core_projectile.tscn" id="2_3ma57"]
+[ext_resource type="Script" path="res://CityBlocks/PlayerCore/player_core_cannon.gd" id="2_enb5a"]
+[ext_resource type="Script" path="res://Shooting/cannon_config.gd" id="3_aej5y"]
+
+[sub_resource type="Resource" id="Resource_6hlcn"]
+script = ExtResource("3_aej5y")
+turning_speed = 360.0
+targeting_range = 500.0
+projectile = ExtResource("2_3ma57")
+bullets_per_series = 1
+reload_between_shots = 0.2
+reload_between_series = 1.0
+
+[node name="Cannon" instance=ExtResource("1_tf16g")]
+script = ExtResource("2_enb5a")
+config = SubResource("Resource_6hlcn")
+
+[node name="TargetingRange" parent="." index="0"]
+collision_mask = 18
+
+[node name="AnimatedSprite2D" parent="Rotator" index="0"]
+animation = &""
+
+[node name="Muzzle" parent="Rotator/Sprite2D" index="0"]
+position = Vector2(58, 0)
+
+[node name="Node" type="Node" parent="." index="5"]
+
+[node name="CursorTarget" type="Node2D" parent="Node" index="0"]
+unique_name_in_owner = true

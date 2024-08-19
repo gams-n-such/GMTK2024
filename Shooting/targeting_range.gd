@@ -3,22 +3,21 @@
 class_name TargetingRange
 extends Area2D
 
-
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+	_update_shape()
 
 var _shape : CircleShape2D:
 	get:
 		return %Circle.shape
 
+var _range : float = 200.0
 @export var range : float:
 	get:
-		return _shape.radius
+		return _range
 	set(new_range):
-		_shape.radius = new_range
+		_range = new_range
+		if is_node_ready():
+			_update_shape()
+
+func _update_shape() -> void:
+	_shape.radius = range

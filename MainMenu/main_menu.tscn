@@ -1,4 +1,7 @@
-[gd_scene format=3 uid="uid://dcoyuwarqd6yx"]
+[gd_scene load_steps=3 format=3 uid="uid://dcoyuwarqd6yx"]
+
+[ext_resource type="Script" path="res://MainMenu/main_menu.gd" id="1_uqjbj"]
+[ext_resource type="PackedScene" uid="uid://bnfojh3g3yp3l" path="res://MainMenu/help.tscn" id="2_en5cv"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -7,6 +10,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_uqjbj")
+tutorial_scene = ExtResource("2_en5cv")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -26,6 +31,10 @@ grow_vertical = 2
 layout_mode = 2
 text = "Start"
 
+[node name="Test" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Test arena"
+
 [node name="HowToPlay" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 text = "How to play"
@@ -39,6 +48,7 @@ layout_mode = 2
 text = "Quit"
 
 [connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/Test" to="." method="_on_test_pressed"]
 [connection signal="pressed" from="VBoxContainer/HowToPlay" to="." method="_on_how_to_play_pressed"]
 [connection signal="pressed" from="VBoxContainer/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]

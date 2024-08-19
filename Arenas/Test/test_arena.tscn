@@ -1,0 +1,180 @@
+[gd_scene load_steps=8 format=3 uid="uid://0kk0oi2vvwgs"]
+
+[ext_resource type="PackedScene" uid="uid://ok7vgku781bq" path="res://Player/player_city.tscn" id="2_5gbta"]
+[ext_resource type="PackedScene" uid="uid://s00l0baoakcg" path="res://Game/game_boundary.tscn" id="2_rt7cg"]
+[ext_resource type="PackedScene" uid="uid://g453n8bumn6n" path="res://GameObjects/destructible_object_factory.tscn" id="3_3qjjc"]
+[ext_resource type="PackedScene" uid="uid://c47k4nmq3i2cr" path="res://GameObjects/destructible_object_town.tscn" id="4_7f4ic"]
+[ext_resource type="PackedScene" uid="uid://bcbc81uscox4j" path="res://GameObjects/destructible_object_city.tscn" id="5_lvn8i"]
+
+[sub_resource type="Gradient" id="Gradient_y4s5f"]
+offsets = PackedFloat32Array(0.115942, 0.927536)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_h2qrw"]
+gradient = SubResource("Gradient_y4s5f")
+width = 512
+height = 512
+fill_to = Vector2(1, 1)
+
+[node name="GameArena" type="Node"]
+
+[node name="SceneRoot" type="Node2D" parent="."]
+
+[node name="Ground" type="Node2D" parent="SceneRoot"]
+
+[node name="GroundSprite" type="Sprite2D" parent="SceneRoot/Ground"]
+texture = SubResource("GradientTexture2D_h2qrw")
+
+[node name="GroundSprite2" type="Sprite2D" parent="SceneRoot/Ground"]
+position = Vector2(512, 0)
+texture = SubResource("GradientTexture2D_h2qrw")
+
+[node name="GroundSprite3" type="Sprite2D" parent="SceneRoot/Ground"]
+position = Vector2(-512, 0)
+texture = SubResource("GradientTexture2D_h2qrw")
+
+[node name="GroundSprite4" type="Sprite2D" parent="SceneRoot/Ground"]
+position = Vector2(-1024, 0)
+texture = SubResource("GradientTexture2D_h2qrw")
+
+[node name="GroundSprite5" type="Sprite2D" parent="SceneRoot/Ground"]
+position = Vector2(1024, 0)
+texture = SubResource("GradientTexture2D_h2qrw")
+
+[node name="GroundSprite6" type="Sprite2D" parent="SceneRoot/Ground"]
+position = Vector2(0, 512)
+texture = SubResource("GradientTexture2D_h2qrw")
+
+[node name="GroundSprite7" type="Sprite2D" parent="SceneRoot/Ground"]
+position = Vector2(512, 512)
+texture = SubResource("GradientTexture2D_h2qrw")
+
+[node name="GroundSprite8" type="Sprite2D" parent="SceneRoot/Ground"]
+position = Vector2(-512, 512)
+texture = SubResource("GradientTexture2D_h2qrw")
+
+[node name="GroundSprite9" type="Sprite2D" parent="SceneRoot/Ground"]
+position = Vector2(-1024, 512)
+texture = SubResource("GradientTexture2D_h2qrw")
+
+[node name="GroundSprite10" type="Sprite2D" parent="SceneRoot/Ground"]
+position = Vector2(1024, 512)
+texture = SubResource("GradientTexture2D_h2qrw")
+
+[node name="GroundSprite11" type="Sprite2D" parent="SceneRoot/Ground"]
+position = Vector2(0, -512)
+texture = SubResource("GradientTexture2D_h2qrw")
+
+[node name="GroundSprite12" type="Sprite2D" parent="SceneRoot/Ground"]
+position = Vector2(512, -512)
+texture = SubResource("GradientTexture2D_h2qrw")
+
+[node name="GroundSprite13" type="Sprite2D" parent="SceneRoot/Ground"]
+position = Vector2(-512, -512)
+texture = SubResource("GradientTexture2D_h2qrw")
+
+[node name="GroundSprite14" type="Sprite2D" parent="SceneRoot/Ground"]
+position = Vector2(-1024, -512)
+texture = SubResource("GradientTexture2D_h2qrw")
+
+[node name="GroundSprite15" type="Sprite2D" parent="SceneRoot/Ground"]
+position = Vector2(1024, -512)
+texture = SubResource("GradientTexture2D_h2qrw")
+
+[node name="GroundSprite16" type="Sprite2D" parent="SceneRoot/Ground"]
+position = Vector2(0, -1024)
+texture = SubResource("GradientTexture2D_h2qrw")
+
+[node name="GroundSprite17" type="Sprite2D" parent="SceneRoot/Ground"]
+position = Vector2(512, -1024)
+texture = SubResource("GradientTexture2D_h2qrw")
+
+[node name="GroundSprite18" type="Sprite2D" parent="SceneRoot/Ground"]
+position = Vector2(-512, -1024)
+texture = SubResource("GradientTexture2D_h2qrw")
+
+[node name="GroundSprite19" type="Sprite2D" parent="SceneRoot/Ground"]
+position = Vector2(-1024, -1024)
+texture = SubResource("GradientTexture2D_h2qrw")
+
+[node name="GroundSprite20" type="Sprite2D" parent="SceneRoot/Ground"]
+position = Vector2(1024, -1024)
+texture = SubResource("GradientTexture2D_h2qrw")
+
+[node name="GroundSprite21" type="Sprite2D" parent="SceneRoot/Ground"]
+position = Vector2(0, 1024)
+texture = SubResource("GradientTexture2D_h2qrw")
+
+[node name="GroundSprite22" type="Sprite2D" parent="SceneRoot/Ground"]
+position = Vector2(512, 1024)
+texture = SubResource("GradientTexture2D_h2qrw")
+
+[node name="GroundSprite23" type="Sprite2D" parent="SceneRoot/Ground"]
+position = Vector2(-512, 1024)
+texture = SubResource("GradientTexture2D_h2qrw")
+
+[node name="GroundSprite24" type="Sprite2D" parent="SceneRoot/Ground"]
+position = Vector2(-1024, 1024)
+texture = SubResource("GradientTexture2D_h2qrw")
+
+[node name="GroundSprite25" type="Sprite2D" parent="SceneRoot/Ground"]
+position = Vector2(1024, 1024)
+texture = SubResource("GradientTexture2D_h2qrw")
+
+[node name="GameBoundary" parent="SceneRoot" instance=ExtResource("2_rt7cg")]
+arena_size = Vector2(2560, 2560)
+wall_thickness = 50.0
+
+[node name="PlayerCity" parent="SceneRoot" instance=ExtResource("2_5gbta")]
+
+[node name="DestructibleObjects" type="Node2D" parent="SceneRoot"]
+
+[node name="DestructibleObject" parent="SceneRoot/DestructibleObjects" instance=ExtResource("3_3qjjc")]
+position = Vector2(391, -218)
+
+[node name="DestructibleObject2" parent="SceneRoot/DestructibleObjects" instance=ExtResource("3_3qjjc")]
+position = Vector2(-554, 854)
+
+[node name="DestructibleObject3" parent="SceneRoot/DestructibleObjects" instance=ExtResource("3_3qjjc")]
+position = Vector2(-851, 545)
+
+[node name="DestructibleObject4" parent="SceneRoot/DestructibleObjects" instance=ExtResource("3_3qjjc")]
+position = Vector2(-932, -565)
+
+[node name="DestructibleObject5" parent="SceneRoot/DestructibleObjects" instance=ExtResource("3_3qjjc")]
+position = Vector2(-508, -854)
+
+[node name="DestructibleObject6" parent="SceneRoot/DestructibleObjects" instance=ExtResource("5_lvn8i")]
+position = Vector2(602, 825)
+
+[node name="DestructibleObject7" parent="SceneRoot/DestructibleObjects" instance=ExtResource("5_lvn8i")]
+position = Vector2(831, 414)
+
+[node name="DestructibleObject8" parent="SceneRoot/DestructibleObjects" instance=ExtResource("5_lvn8i")]
+position = Vector2(68, 464)
+
+[node name="DestructibleObject9" parent="SceneRoot/DestructibleObjects" instance=ExtResource("5_lvn8i")]
+position = Vector2(-12, 1104)
+
+[node name="DestructibleObject10" parent="SceneRoot/DestructibleObjects" instance=ExtResource("5_lvn8i")]
+position = Vector2(-923, -264)
+
+[node name="DestructibleObject11" parent="SceneRoot/DestructibleObjects" instance=ExtResource("5_lvn8i")]
+position = Vector2(-605, -578)
+
+[node name="DestructibleObject12" parent="SceneRoot/DestructibleObjects" instance=ExtResource("4_7f4ic")]
+position = Vector2(497, -773)
+
+[node name="DestructibleObject13" parent="SceneRoot/DestructibleObjects" instance=ExtResource("4_7f4ic")]
+position = Vector2(-936, 240)
+
+[node name="DestructibleObject14" parent="SceneRoot/DestructibleObjects" instance=ExtResource("4_7f4ic")]
+position = Vector2(102, -485)
+
+[node name="DestructibleObject15" parent="SceneRoot/DestructibleObjects" instance=ExtResource("4_7f4ic")]
+position = Vector2(1136, -934)
+
+[node name="DestructibleObject16" parent="SceneRoot/DestructibleObjects" instance=ExtResource("4_7f4ic")]
+position = Vector2(920, 1159)
+
+[node name="DestructibleObject17" parent="SceneRoot/DestructibleObjects" instance=ExtResource("4_7f4ic")]
+position = Vector2(-957, -1048)

@@ -1,0 +1,52 @@
+[gd_scene load_steps=4 format=3 uid="uid://s00l0baoakcg"]
+
+[ext_resource type="Script" path="res://Game/game_boundary.gd" id="1_moj7k"]
+
+[sub_resource type="RectangleShape2D" id="vertical_boundary"]
+resource_local_to_scene = true
+size = Vector2(20, 1000)
+
+[sub_resource type="RectangleShape2D" id="horizontal_boundary"]
+resource_local_to_scene = true
+size = Vector2(1000, 20)
+
+[node name="GameBoundary" type="Node2D"]
+script = ExtResource("1_moj7k")
+arena_size = Vector2(1000, 1000)
+wall_thickness = 20.0
+
+[node name="LeftWall" type="StaticBody2D" parent="."]
+position = Vector2(-500, 0)
+collision_layer = 32
+collision_mask = 31
+
+[node name="Shape" type="CollisionShape2D" parent="LeftWall"]
+position = Vector2(-10, 0)
+shape = SubResource("vertical_boundary")
+
+[node name="RightWall" type="StaticBody2D" parent="."]
+position = Vector2(500, 0)
+collision_layer = 32
+collision_mask = 31
+
+[node name="Shape" type="CollisionShape2D" parent="RightWall"]
+position = Vector2(10, 0)
+shape = SubResource("vertical_boundary")
+
+[node name="UpWall" type="StaticBody2D" parent="."]
+position = Vector2(0, -500)
+collision_layer = 32
+collision_mask = 31
+
+[node name="Shape" type="CollisionShape2D" parent="UpWall"]
+position = Vector2(0, -10)
+shape = SubResource("horizontal_boundary")
+
+[node name="DownWall" type="StaticBody2D" parent="."]
+position = Vector2(0, 500)
+collision_layer = 32
+collision_mask = 31
+
+[node name="Shape" type="CollisionShape2D" parent="DownWall"]
+position = Vector2(0, 10)
+shape = SubResource("horizontal_boundary")

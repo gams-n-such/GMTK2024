@@ -81,7 +81,8 @@ func shoot() -> void:
 		return
 	_shots_left_in_series = config.bullets_per_series
 	_shoot_single()
-	%SeriesTimer.start()
+	if _shots_left_in_series > 0:
+		%SeriesTimer.start()
 
 func _on_series_timer_timeout() -> void:
 	_shoot_single()
@@ -100,12 +101,12 @@ func _on_series_ended() -> void:
 #signal shot(projectile : Projectile, muzzle_transform : Transform2D)
 
 func spawn_projectile() -> void:
-	var projectile : Projectile = config.projectile.instantiate()
+	var projectile = config.projectile.instantiate()
 	# FIXME: set proper instigator (character?)
 	projectile.instigator = self
 	# FIXME: revisit projectile spawning
-	projectile.position = %Muzzle.global_position
-	projectile.rotation = %Muzzle.global_rotation
+	projectile.global_position = %Muzzle.global_position
+	projectile.global_rotation = %Muzzle.global_rotation
 	get_tree().root.add_child(projectile)
 
 #endregion Shooting
