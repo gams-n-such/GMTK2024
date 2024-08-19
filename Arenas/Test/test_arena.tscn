@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://0kk0oi2vvwgs"]
+[gd_scene load_steps=13 format=3 uid="uid://0kk0oi2vvwgs"]
 
 [ext_resource type="Script" path="res://Arenas/Test/test_arena.gd" id="1_pag3j"]
 [ext_resource type="PackedScene" uid="uid://dd0noa2k8ss5q" path="res://Player/player_city.tscn" id="2_5gbta"]
@@ -7,6 +7,9 @@
 [ext_resource type="PackedScene" path="res://GameObjects/destructible_object_town.tscn" id="4_7f4ic"]
 [ext_resource type="PackedScene" path="res://GameObjects/destructible_object_city.tscn" id="5_lvn8i"]
 [ext_resource type="PackedScene" uid="uid://bta3w85fgsee8" path="res://Game/city_hud.tscn" id="7_bpvf6"]
+[ext_resource type="PackedScene" uid="uid://bnnwq33neholh" path="res://Pickups/Experience/pickup_experience_1.tscn" id="7_erxok"]
+[ext_resource type="PackedScene" uid="uid://meip5p2tuuaw" path="res://Pickups/Experience/pickup_experience_3.tscn" id="8_p8a3n"]
+[ext_resource type="PackedScene" uid="uid://b1ht3wltpsjp0" path="res://Pickups/Experience/pickup_experience_5.tscn" id="9_laoqd"]
 
 [sub_resource type="Gradient" id="Gradient_y4s5f"]
 offsets = PackedFloat32Array(0.115942, 0.927536)
@@ -183,7 +186,22 @@ position = Vector2(920, 1159)
 [node name="DestructibleObject17" parent="SceneRoot/DestructibleObjects" instance=ExtResource("4_7f4ic")]
 position = Vector2(-957, -1048)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="Pickups" type="Node2D" parent="SceneRoot"]
 
-[node name="HUD" parent="CanvasLayer" instance=ExtResource("7_bpvf6")]
+[node name="PickupExp" parent="SceneRoot/Pickups" instance=ExtResource("7_erxok")]
+position = Vector2(-328, -225)
+
+[node name="PickupExp2" parent="SceneRoot/Pickups" instance=ExtResource("9_laoqd")]
+position = Vector2(-230, -252)
+
+[node name="PickupExp3" parent="SceneRoot/Pickups" instance=ExtResource("8_p8a3n")]
+position = Vector2(-385, -73)
+
+[node name="PickupExp4" parent="SceneRoot/Pickups" instance=ExtResource("9_laoqd")]
+position = Vector2(-317, 57)
+
+[node name="UI" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+
+[node name="HUD" parent="UI" instance=ExtResource("7_bpvf6")]
 unique_name_in_owner = true
