@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Shooting/cannon.gd" id="1_mq267"]
 [ext_resource type="Script" path="res://Shooting/rotate_to_2d.gd" id="2_i6bhv"]
 [ext_resource type="PackedScene" uid="uid://bky7rgyyp47bh" path="res://Shooting/targeting_range.tscn" id="2_njexh"]
-[ext_resource type="Texture2D" uid="uid://bibocga5a262e" path="res://Cities/city_block_art_placeholder.png" id="4_mhuos"]
+[ext_resource type="Texture2D" uid="uid://bcvuql87haw7y" path="res://Cities/hexagon_horizontal_white.svg" id="4_bldyf"]
 
 [node name="Cannon" type="Node2D"]
 script = ExtResource("1_mq267")
@@ -19,9 +19,10 @@ script = ExtResource("2_i6bhv")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Rotator"]
 
 [node name="Sprite2D" type="Sprite2D" parent="Rotator"]
+self_modulate = Color(0, 0, 0, 1)
 position = Vector2(32, 0)
-scale = Vector2(0.5, 0.25)
-texture = ExtResource("4_mhuos")
+scale = Vector2(0.25, 0.126)
+texture = ExtResource("4_bldyf")
 
 [node name="Muzzle" type="Node2D" parent="Rotator/Sprite2D"]
 unique_name_in_owner = true
