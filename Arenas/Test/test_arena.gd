@@ -20,9 +20,7 @@ func upgrade_player() -> void:
 
 func _generate_player_upgrade_options(num : int) -> Array[CityBlock]:
 	var result : Array[CityBlock] = []
-	for i in range(3):
-		result.push_back(preload("res://Cities/city_block.tscn").instantiate())
-	result[0].get_node("CityBlockArtPlaceholder").texture = preload("res://Cities/city_block_art_placeholder_red.png")
-	result[1].get_node("CityBlockArtPlaceholder").texture = preload("res://Cities/city_block_art_placeholder_green.png")
-	result[2].get_node("CityBlockArtPlaceholder").texture = preload("res://Cities/city_block_art_placeholder_blue.png")
+	for i in range(num):
+		var block_scene = game_config.upgrade_options_chances.get_random_object() as PackedScene
+		result.push_back(block_scene.instantiate())
 	return result
