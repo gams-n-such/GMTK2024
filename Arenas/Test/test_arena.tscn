@@ -3,9 +3,9 @@
 [ext_resource type="Script" path="res://Arenas/Test/test_arena.gd" id="1_pag3j"]
 [ext_resource type="PackedScene" uid="uid://dd0noa2k8ss5q" path="res://Player/player_city.tscn" id="2_5gbta"]
 [ext_resource type="PackedScene" uid="uid://s00l0baoakcg" path="res://Game/game_boundary.tscn" id="2_rt7cg"]
-[ext_resource type="PackedScene" uid="uid://g453n8bumn6n" path="res://GameObjects/destructible_object_factory.tscn" id="3_3qjjc"]
-[ext_resource type="PackedScene" uid="uid://c47k4nmq3i2cr" path="res://GameObjects/destructible_object_town.tscn" id="4_7f4ic"]
-[ext_resource type="PackedScene" uid="uid://bcbc81uscox4j" path="res://GameObjects/destructible_object_city.tscn" id="5_lvn8i"]
+[ext_resource type="PackedScene" path="res://GameObjects/destructible_object_factory.tscn" id="3_3qjjc"]
+[ext_resource type="PackedScene" path="res://GameObjects/destructible_object_town.tscn" id="4_7f4ic"]
+[ext_resource type="PackedScene" path="res://GameObjects/destructible_object_city.tscn" id="5_lvn8i"]
 [ext_resource type="PackedScene" uid="uid://bta3w85fgsee8" path="res://UI/city_hud.tscn" id="7_bpvf6"]
 [ext_resource type="PackedScene" uid="uid://bnnwq33neholh" path="res://Pickups/Experience/pickup_experience_1.tscn" id="7_erxok"]
 [ext_resource type="PackedScene" uid="uid://meip5p2tuuaw" path="res://Pickups/Experience/pickup_experience_3.tscn" id="8_p8a3n"]
@@ -21,7 +21,7 @@ width = 512
 height = 512
 fill_to = Vector2(1, 1)
 
-[node name="GameArena" type="Node"]
+[node name="GameArena" type="Node" groups=["Arena"]]
 script = ExtResource("1_pag3j")
 
 [node name="SceneRoot" type="Node2D" parent="."]

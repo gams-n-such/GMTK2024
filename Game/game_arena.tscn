@@ -16,7 +16,7 @@ width = 512
 height = 512
 fill_to = Vector2(1, 1)
 
-[node name="GameArena" type="Node"]
+[node name="GameArena" type="Node" groups=["Arena"]]
 script = ExtResource("1_h22ja")
 
 [node name="GameManager" parent="." instance=ExtResource("1_62vyi")]
