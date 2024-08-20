@@ -22,6 +22,15 @@ func setup(blocks: Array[CityBlock], grid: City):
 	for block in blocks:
 		cards.push_back(preload("res://Cities/city_block_card.tscn").instantiate())
 		cards.back().set_city_block(block)
+		for sprite in block.find_children("*", "Sprite2D", true):
+			var card: CityBlockCard = cards.back()
+			var margin: MarginContainer = (cards.back() as CityBlockCard).get_node("PanelContainer/VBoxContainer/MarginContainer1")
+			var texture: TextureRect = TextureRect.new()
+			texture.texture = sprite.texture
+			margin.add_child(texture)
+			if margin.get_child_count() > 3:
+				break
+			
 		%HBoxContainer.add_child(cards.back())
 		(cards.back() as CityBlockCard).pressed.connect(card_pressed)
 	
