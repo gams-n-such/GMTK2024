@@ -21,8 +21,20 @@ func _ready() -> void:
 	core_block.destroyed.connect(_on_core_block_destroyed)
 	pass
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+var was_moving : bool = true
+var is_moving : bool:
+	get:
+		return $Body.move_direction.length() > 0.1
+
 func _process(delta: float) -> void:
+	if is_moving != was_moving:
+		was_moving = is_moving
+		if is_moving:
+			$IdleSound.stop()
+			$MovingSound.play()
+		else:
+			$IdleSound.play()
+			$MovingSound.stop()
 	pass
 
 func get_input_target() -> Node:
