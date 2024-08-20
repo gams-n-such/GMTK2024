@@ -7,12 +7,13 @@ func is_empty() -> bool:
 	return get_entries().is_empty()
 
 func get_random_entry() -> WeightedRandomPoolEntry:
-	var entries : Array[WeightedRandomPoolEntry] = get_entries()
+	var entries : Array = get_entries()
 	if entries.is_empty():
 		return null
 
 	var sum_weights : float = 0.0
-	for entry in entries:
+	for array_element in entries:
+		var entry = array_element as WeightedRandomPoolEntry
 		if entry:
 			sum_weights += entry.weight
 
