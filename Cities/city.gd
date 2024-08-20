@@ -3,46 +3,57 @@ extends Node
 
 @export var outer_radius: float = 128 / 2
 var inner_radius: float = sqrt(3) / 2 * outer_radius
-var origin: CityBlock
 var origin_offset: Vector2 = Vector2(0, 0)
-var grid_size: Vector2i
+@export var grid_size: Vector2i = Vector2i(16, 16)
 var grid: Array[Array]
 var available_spots: Array[Vector2i]
 var block_to_spot:= {}
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
-
+	setup_grid()
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
 
 #region hex_grid
-func setup_grid(size: Vector2i, starting_block: CityBlock):
-	for i in size.y:
+func setup_grid():
+	for i in grid_size.y:
 		grid.push_back([])
-		for j in size.x:
+		for j in grid_size.x:
 			grid[i].push_back(null)
-	grid_size = size
-	origin = starting_block
+			available_spots.push_back(Vector2i(j, i))
+	#origin = starting_blocklll
 	#var middle = Vector2i(0, 0)
 	var middle = Vector2i(grid_size.x / 2, grid_size.y / 2)
 	origin_offset = spot_to_position(middle)
-	available_spots.push_back(middle)
-	add_city_block_spot(middle, starting_block)
+	#available_spots.push_back(middle)
+	#add_city_block_spot(middle, starting_block)
+	for node in self.get_children():
+		if node is CityBlockHolder:
+			var holder = node as CityBlockHolder
+			var spot: Vector2i = holder.spot
+			var block: CityBlock = null
+			for temp in holder.get_children():
+				if temp is CityBlock:
+					block = temp as CityBlock
+					break
+			if block != null: add_city_block_spot(spot, block)
+			holder.queue_free()
+	remove_unconnected_blocks()
 
-func spot_to_position(spot: Vector2i):
+func spot_to_position(spot: Vector2i) -> Vector2:
 	return Vector2(spot.y * outer_radius * 1.5, (spot.x + spot.y * 0.5 - spot.y / 2) * inner_radius * 2) - origin_offset
 
-func is_spot_in_bounds(spot: Vector2i):
+func is_spot_in_bounds(spot: Vector2i) -> bool:
 	return 0 <= spot.x and spot.x < grid_size.x and 0 <= spot.y and spot.y < grid_size.y
 
-func is_spot_occupied(spot: Vector2i):
+func is_spot_occupied(spot: Vector2i) -> bool:
 	return grid[spot.y][spot.x] != null
 
-func is_spot_not_occupied(spot: Vector2i):
+func is_spot_not_occupied(spot: Vector2i) -> bool:
 	return grid[spot.y][spot.x] == null
 
 # heavy, use sparingly
@@ -67,7 +78,7 @@ func remove_duplicates(arr: Array[Vector2i]):
 		arr.remove_at(duplicate_indexes[i] - i)
 	return arr
 
-func get_neighbouring_spots(spot: Vector2i):
+func get_neighbouring_spots(spot: Vector2i) -> Array[Vector2i]:
 	var result: Array[Vector2i]
 	var offset: int
 	if (spot.y % 2) == 1: offset = 1
@@ -96,7 +107,7 @@ func add_city_block_spot(spot: Vector2i, block: CityBlock):
 		return
 	available_spots.remove_at(index)
 	if (block.get_parent() != null): block.get_parent().remove_child(block) # reparenting given ref
-	%Body.add_child(block)
+	get_node("Body").add_child(block)
 	grid[spot.y][spot.x] = block
 	block_to_spot.get_or_add(block, spot)
 	block.position = spot_to_position(spot)
@@ -120,10 +131,15 @@ func remove_city_block_at_spot(spot: Vector2i):
 	self.remove_child(block)
 	block.queue_free()
 	block = null
-	
+	remove_unconnected_blocks()
+
+func remove_unconnected_blocks():
 	var not_visited = block_to_spot.duplicate()
 	var to_visit: Array[Array]
-	to_visit.push_back([origin, block_to_spot.get(origin)])
+	var middle: Vector2i = Vector2i(grid_size.x / 2, grid_size.y / 2)
+	var block: CityBlock
+	var spot: Vector2i
+	to_visit.push_back([grid[middle.x][middle.y], middle])
 	
 	while not to_visit.is_empty():
 		block = to_visit.back()[0] as CityBlock
@@ -147,10 +163,10 @@ func remove_city_block_at_spot(spot: Vector2i):
 	reset_available_spots()
 
 # returns array[[spot: Vector2i, global_position: Vector2], ...]
-func get_available_spots():
+func get_available_spots() -> Array[Array]:
 	print(get_parent().rotation)
 	var result: Array[Array]
 	for spot in available_spots:
-		result.push_back([spot, spot_to_position(spot).rotated(%Body.global_rotation) + %Body.global_position])
+		result.push_back([spot, spot_to_position(spot).rotated(get_node("Body").global_rotation) + get_node("Body").global_position])
 	return result
 #endregion 

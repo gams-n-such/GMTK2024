@@ -1,0 +1,75 @@
+[gd_scene load_steps=4 format=3 uid="uid://djlcjubkkcagq"]
+
+[ext_resource type="Script" path="res://addons/citybuilderplugin/panel.gd" id="1_2v23u"]
+[ext_resource type="Script" path="res://addons/citybuilderplugin/addon_resource_picker.gd" id="1_32oou"]
+[ext_resource type="PackedScene" uid="uid://cmdkf4w7cb4lm" path="res://addons/citybuilderplugin/city_block_holder.tscn" id="1_ti0q1"]
+
+[node name="Panel" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_2v23u")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 720.0
+offset_bottom = 720.0
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(720, 720)
+render_target_update_mode = 0
+
+[node name="HexBlock" parent="SubViewportContainer/SubViewport" instance=ExtResource("1_ti0q1")]
+visible = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "City builder tool"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="SpinBoxX" type="SpinBox" parent="VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+value = 16.0
+prefix = "x:"
+
+[node name="SpinBoxY" type="SpinBox" parent="VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+value = 16.0
+prefix = "y:"
+
+[node name="FixGrid" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Fix grid
+"
+
+[node name="AddonResourcePicker" type="EditorResourcePicker" parent="VBoxContainer"]
+visible = false
+layout_mode = 2
+base_type = "PackedScene"
+script = ExtResource("1_32oou")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="RotateLeft" type="Button" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Rotate left"
+
+[node name="RotateRight" type="Button" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Rotate right"
+
+[connection signal="pressed" from="VBoxContainer/FixGrid" to="." method="_on_fix_grid_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer2/RotateLeft" to="." method="_on_rotate_left_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer2/RotateRight" to="." method="_on_rotate_right_pressed"]
