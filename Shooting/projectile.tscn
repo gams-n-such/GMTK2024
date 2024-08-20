@@ -1,14 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://7l5y64gguvt8"]
+[gd_scene load_steps=11 format=3 uid="uid://7l5y64gguvt8"]
 
 [ext_resource type="Script" path="res://Shooting/projectile.gd" id="1_0bx1k"]
 [ext_resource type="Script" path="res://Shooting/projectile_config.gd" id="2_nj53r"]
 [ext_resource type="Texture2D" uid="uid://b4vw6u4u6elw5" path="res://Shooting/bullet.png" id="3_mgk3l"]
-[ext_resource type="AudioStream" uid="uid://bw3mudvpoea70" path="res://SFX/Hit_1.wav" id="4_5oo2u"]
-[ext_resource type="AudioStream" uid="uid://dhpliwgihlrl8" path="res://SFX/Hit_2.wav" id="5_17wy6"]
-[ext_resource type="AudioStream" uid="uid://jk87rbmjrkot" path="res://SFX/Hit_3.wav" id="6_7uba8"]
-[ext_resource type="AudioStream" uid="uid://bv1yj0dn7v802" path="res://SFX/Hit_4.wav" id="7_7ly2p"]
-[ext_resource type="AudioStream" uid="uid://lpuqyhsiejct" path="res://SFX/Hit_5.wav" id="8_5pi8y"]
-[ext_resource type="AudioStream" uid="uid://bym84r0641l7k" path="res://SFX/Hit_6.wav" id="9_ueh11"]
+[ext_resource type="AudioStream" uid="uid://c2vvoasl0no6a" path="res://SFX/Cannon_Shot_1.wav" id="4_f3huc"]
+[ext_resource type="AudioStream" uid="uid://dl1gcalybbs7k" path="res://SFX/Cannon_Shot_2.wav" id="5_1os4w"]
+[ext_resource type="AudioStream" uid="uid://bx7a5kkpca8px" path="res://SFX/Cannon_Shot_3.wav" id="6_0rmbu"]
 
 [sub_resource type="Resource" id="Resource_pg5dm"]
 script = ExtResource("2_nj53r")
@@ -25,13 +22,10 @@ resource_local_to_scene = true
 resource_local_to_scene = true
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_k73ea"]
-streams_count = 6
-stream_0/stream = ExtResource("4_5oo2u")
-stream_1/stream = ExtResource("5_17wy6")
-stream_2/stream = ExtResource("6_7uba8")
-stream_3/stream = ExtResource("7_7ly2p")
-stream_4/stream = ExtResource("8_5pi8y")
-stream_5/stream = ExtResource("9_ueh11")
+streams_count = 3
+stream_0/stream = ExtResource("4_f3huc")
+stream_1/stream = ExtResource("5_1os4w")
+stream_2/stream = ExtResource("6_0rmbu")
 
 [node name="Projectile" type="RigidBody2D"]
 collision_layer = 4
@@ -62,6 +56,10 @@ position = Vector2(2, 0)
 texture = ExtResource("3_mgk3l")
 
 [node name="HitSound" type="AudioStreamPlayer2D" parent="."]
+process_mode = 3
+stream = SubResource("AudioStreamRandomizer_k73ea")
+
+[node name="ShotSound" type="AudioStreamPlayer2D" parent="."]
 process_mode = 3
 stream = SubResource("AudioStreamRandomizer_k73ea")
 

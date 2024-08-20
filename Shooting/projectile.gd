@@ -13,6 +13,7 @@ func _ready() -> void:
 	_explosion_circle.radius = config.damage_radius
 	linear_velocity = Vector2.from_angle(global_rotation) * config.speed
 	%DeathTimer.start(config.projectile_lifetime)
+	$HitSound.play()
 	pass
 
 var is_player : bool
