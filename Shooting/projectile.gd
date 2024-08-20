@@ -53,13 +53,13 @@ func _on_body_shape_entered(body_rid: RID, body: Node, body_shape_index: int, lo
 
 func _on_target_hit(hit_target : Node) -> void:
 	process_mode = PROCESS_MODE_DISABLED
+	$Bullet.visible = false
 	if config.damage_radius > 0:
 		_deal_aoe_damage()
 	else:
 		_deal_direct_damage(hit_target)
-	# TODO: VFX, SFX
-	# TODO: await animation end
-	#await get_tree().create_timer(0.2).timeout
+	$HitSound.play()
+	await $HitSound.finished
 	queue_free()
 
 func _deal_aoe_damage() -> void:
@@ -75,5 +75,5 @@ func _deal_aoe_damage() -> void:
 		_deal_direct_damage(target)
 
 func _deal_direct_damage(target : Node) -> void:
-	if target.has_method("take_damage"):
-		target.take_damage(config.damage, instigator, self)
+	if target != null and target.has_method("take_damage"):
+		target.take_damage(config.damage, self, self)
