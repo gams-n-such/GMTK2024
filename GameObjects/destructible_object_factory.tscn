@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://g453n8bumn6n"]
+[gd_scene load_steps=3 format=3 uid="uid://cmdbnecky4cnb"]
 
 [ext_resource type="PackedScene" uid="uid://dmsekpqphea0h" path="res://GameObjects/destructible_object.tscn" id="1_wi7py"]
 [ext_resource type="Texture2D" uid="uid://c22a356o8cgr8" path="res://GameObjects/building-svgrepo-com.svg" id="2_3coen"]

@@ -52,7 +52,6 @@ collision_mask = 18
 material = SubResource("CanvasItemMaterial_78lph")
 position = Vector2(111, 3)
 rotation = -3.05723
-scale = Vector2(1, 1)
 amount = 100
 process_material = SubResource("ParticleProcessMaterial_0pgti")
 texture = SubResource("GradientTexture2D_63a5k")

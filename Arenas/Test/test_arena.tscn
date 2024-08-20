@@ -1,9 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://0kk0oi2vvwgs"]
+[gd_scene load_steps=15 format=3 uid="uid://0kk0oi2vvwgs"]
 
 [ext_resource type="Script" path="res://Arenas/Test/test_arena.gd" id="1_pag3j"]
 [ext_resource type="PackedScene" uid="uid://dd0noa2k8ss5q" path="res://Player/player_city.tscn" id="2_5gbta"]
 [ext_resource type="PackedScene" path="res://Game/game_boundary.tscn" id="2_rt7cg"]
-[ext_resource type="PackedScene" path="res://GameObjects/destructible_object_factory.tscn" id="3_3qjjc"]
+[ext_resource type="PackedScene" uid="uid://cmdbnecky4cnb" path="res://GameObjects/destructible_object_factory.tscn" id="3_3qjjc"]
 [ext_resource type="PackedScene" path="res://GameObjects/destructible_object_town.tscn" id="4_7f4ic"]
 [ext_resource type="PackedScene" path="res://GameObjects/destructible_object_city.tscn" id="5_lvn8i"]
 [ext_resource type="PackedScene" uid="uid://bta3w85fgsee8" path="res://UI/city_hud.tscn" id="7_bpvf6"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://meip5p2tuuaw" path="res://Pickups/Experience/pickup_experience_3.tscn" id="8_p8a3n"]
 [ext_resource type="PackedScene" uid="uid://b1ht3wltpsjp0" path="res://Pickups/Experience/pickup_experience_5.tscn" id="9_laoqd"]
 [ext_resource type="Script" path="res://Game/enemy_spawner.gd" id="11_u0425"]
+[ext_resource type="PackedScene" uid="uid://kjde8hyym3ix" path="res://Enemies/Enemy_car/Jihadka.tscn" id="12_iy2dd"]
 
 [sub_resource type="Gradient" id="Gradient_y4s5f"]
 offsets = PackedFloat32Array(0.115942, 0.927536)
@@ -212,3 +213,6 @@ unique_name_in_owner = true
 
 [node name="EnemySpawner" type="Node2D" parent="Logic"]
 script = ExtResource("11_u0425")
+
+[node name="Jihadka" parent="." instance=ExtResource("12_iy2dd")]
+position = Vector2(391, 142)
