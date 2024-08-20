@@ -13,6 +13,7 @@ func _ready():
 	%PlayerCity.destroyed.connect(_on_player_city_destroyed)
 	%PlayerCity.get_level().value_changed.connect(_on_player_level_changed)
 	$Logic/EnemySpawner.arena = $SceneRoot/GameBoundary
+	$Logic/PickupSpawner.enemy_spawner = $Logic/EnemySpawner
 
 func _on_player_level_changed(attribute : Attribute, new_value : float, old_value : float) -> void:
 	if new_value > old_value:

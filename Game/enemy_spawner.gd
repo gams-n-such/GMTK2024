@@ -6,6 +6,8 @@ var time1 : float = 0
 var not_movable_enemy : Array[PackedScene]
 var arena
 
+signal not_movable_enemy_spawned(object)
+
 func _ready() -> void:
 	arena = get_tree().get_first_node_in_group("Arena")
 	not_movable_enemy.append( load("res://GameObjects/destructible_object_town.tscn"))
@@ -42,4 +44,5 @@ func _spawn_not_movable_enemy():
 	var enemy = not_movable_enemy[type].instantiate()
 	enemy.position = point
 	add_child(enemy)
+	not_movable_enemy_spawned.emit(enemy)
 	
