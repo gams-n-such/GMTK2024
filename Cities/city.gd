@@ -1,6 +1,8 @@
 class_name City
 extends Node
 
+signal destroyed(city : City)
+
 @export var outer_radius: float = 128 / 2
 var inner_radius: float = sqrt(3) / 2 * outer_radius
 var origin_offset: Vector2 = Vector2(0, 0)

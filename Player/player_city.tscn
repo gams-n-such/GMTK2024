@@ -26,12 +26,14 @@ visible = false
 [node name="HexGrid" parent="Body" index="2" instance=ExtResource("4_pgx6t")]
 
 [node name="Level" type="Node" parent="." index="1"]
+unique_name_in_owner = true
 script = ExtResource("4_2at55")
 min_value = 1.0
 has_max_value = true
 max_value = 50.0
 
 [node name="Experience" type="Node" parent="." index="2"]
+unique_name_in_owner = true
 script = ExtResource("4_2at55")
 max_value = 20.0
 

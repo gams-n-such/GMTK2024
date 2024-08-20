@@ -1,14 +1,11 @@
 class_name PickupBase
+extends Area2D
 
-extends Node2D
+func _on_body_entered(body: Node2D) -> void:
+	var player = body.get_parent() as PlayerCity
+	assert(player)
+	_apply_to_player(player)
+	queue_free()
 
-# TODO: implement basic "on pickup" logic and child classes
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _apply_to_player(player : PlayerCity) -> void:
 	pass

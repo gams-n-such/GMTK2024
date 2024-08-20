@@ -1,5 +1,13 @@
 extends Node
+
 var city_builder: CityBuilder = null
+
+@onready var game_config : GameConfig = preload("res://default_game_config.tres")
+
+func _ready():
+	%HUD.player = %PlayerCity
+	%PlayerCity.progression_config = game_config.progression_settings
+
 
 func _input(event):
 	if event is InputEventKey and event.keycode == KEY_F and event.is_released() and city_builder == null:
@@ -15,12 +23,3 @@ func _input(event):
 		city_builder = preload("res://Cities/city_builder.tscn").instantiate()
 		city_builder.setup(city_blocks, city)
 		self.add_child(city_builder)
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass

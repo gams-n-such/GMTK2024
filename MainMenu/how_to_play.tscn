@@ -1,0 +1,41 @@
+[gd_scene load_steps=2 format=3 uid="uid://x4qydo4x8oi5"]
+
+[ext_resource type="Script" path="res://MainMenu/how_to_play.gd" id="1_wu27i"]
+
+[node name="HowToPlay" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wu27i")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+custom_minimum_size = Vector2(720, 480)
+layout_mode = 2
+size_flags_vertical = 1
+text = "Use WASD or arrows to move. Use mouse to choose a direction of movement. Hit objects to collect XP, grow after filling XP progress bar. Do not let other cities to destroy your central node."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 10
+text = "Back to main menu"
+
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]

@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://6nsi10fyhlrb"]
+
+[ext_resource type="PackedScene" uid="uid://dm868pfvoveve" path="res://Loot/pickup_base.tscn" id="1_4a2go"]
+[ext_resource type="Script" path="res://Pickups/Experience/pickup_experience.gd" id="2_ap0lu"]
+
+[node name="PickupExp" instance=ExtResource("1_4a2go")]
+script = ExtResource("2_ap0lu")
+experience_amount = 1
