@@ -13,6 +13,8 @@ var grid: Array[Array]
 var available_spots: Array[Vector2i]
 var block_to_spot:= {}
 
+@export var drop_count = 5
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	setup_grid()
