@@ -24,12 +24,28 @@ func setup(blocks: Array[CityBlock], grid: City):
 		cards.back().set_city_block(block)
 		%HBoxContainer.add_child(cards.back())
 		(cards.back() as CityBlockCard).pressed.connect(card_pressed)
+	
 	reset_available_positions()
+	
+	for slot in available_positions:
+		var global_pos: Vector2 = slot[1]
+		var plus: Sprite2D = Sprite2D.new()
+		var border: Sprite2D = Sprite2D.new()
+		self.add_child(plus)
+		self.add_child(border)
+		plus.texture = preload("res://Cities/Art/available_slot.png")
+		plus.global_position = global_pos
+		border.texture = preload("res://Cities/city_block_art_placeholder_half_alpha.png")
+		border.global_position = global_pos
+		border.global_rotation = city.get_node("Body").global_rotation
 
 func card_pressed(block: CityBlock):
 	if block.get_parent() != null : block.get_parent().remove_child(block)
 	selected_block = block
-	preview = (block as CityBlock).get_node("CityBlockArtPlaceholder").duplicate()
+	# TODO add preview functionality. currently using placeholder
+	#preview = (block as CityBlock).get_node("CityBlockArtPlaceholder").duplicate()
+	preview = Sprite2D.new()
+	preview.texture = preload("res://Cities/city_block_art_placeholder_half_alpha.png")
 	self.add_child(preview)
 	var canvas = $CanvasLayer
 	self.remove_child(canvas)
@@ -62,12 +78,6 @@ func _input(event):
 			selected_block.rotate(PI / 3)
 			reset_preview_rotation()
 			
-	elif event is InputEventKey:
-		if event.pressed:
-			if event.key_label == KEY_MINUS:
-				camera.zoom *= Vector2(.5, .5)
-			if event.key_label == KEY_PLUS:
-				camera.zoom *= Vector2(2, 2)
 
 func find_closest_available_spot():
 	var closest:= 0 
@@ -94,11 +104,11 @@ func reset_preview_rotation():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	var input_direction: Vector2 = Input.get_vector("left", "right", "up", "down")
+	
+	var input_direction: Vector2 = Input.get_vector("left", "right", "up", "down").rotated(-city.get_node("Body").global_rotation)
 	camera.translate(input_direction * 10)
 	camera.global_position.x = clampf(camera.global_position.x, bounding_box[0], bounding_box[1])
 	camera.global_position.y = clampf(camera.global_position.y, bounding_box[2], bounding_box[3])
-	pass
 
 func _exit_tree() -> void:
 	camera.position = Vector2.ZERO

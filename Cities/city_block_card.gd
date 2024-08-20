@@ -13,7 +13,7 @@ func _ready():
 
 func set_city_block(block: CityBlock):
 	city_block = block
-	%PreviewTextureRect.texture = block.get_node("CityBlockArtPlaceholder").texture
+	#%PreviewTextureRect.texture = block.get_node("CitydBlockArtPlaceholder").texture
 	for key in city_block_stats.keys():
 		var value = city_block_stats[key]
 		var label: Label = Label.new()
