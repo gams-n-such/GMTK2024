@@ -27,7 +27,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	time += delta 
 	time1 += delta 
-	if time1 >= clampf(300/time, 3, 0.5):
+	if time1 >= clampf(300/time, .5, 3):
 		time1 = 0
 		_process1()
 		
@@ -51,11 +51,13 @@ func _process1():
 	_spawn_city_enemy()
 	
 func _spawn_city_enemy():
-	print("spaw city enemy")
+	var player = get_tree().get_first_node_in_group("Player").get_node("Body")
+	print("spawned city enemy")
 	var arena_size : Vector2 = arena.arena_size
 	var point : Vector2 = Vector2(0,0)
-	point.x = randf_range(-arena_size.x/2 , arena_size.x/2)
-	point.y = randf_range(-arena_size.y/2 , arena_size.y/2)
+	while ((point - player.global_position).length() < 500):
+		point.x = randf_range(-arena_size.x/2 , arena_size.x/2)
+		point.y = randf_range(-arena_size.y/2 , arena_size.y/2)
 	var type : int = randi_range(0,2)
 	var enemy = cities[type].instantiate()
 	enemy.position = point
@@ -66,11 +68,13 @@ func _process2():
 	_spawn_not_movable_enemy()
 
 func _spawn_not_movable_enemy():
-	#print("spaw not-movable enemy")
+	print("spawned not-movable enemy")
+	var player = get_tree().get_first_node_in_group("Player").get_node("Body")
 	var arena_size : Vector2 = arena.arena_size
 	var point : Vector2 = Vector2(0,0)
-	point.x = randf_range(-arena_size.x/2 , arena_size.x/2)
-	point.y = randf_range(-arena_size.y/2 , arena_size.y/2)
+	while ((point - player.global_position).length() < 200):
+		point.x = randf_range(-arena_size.x/2 , arena_size.x/2)
+		point.y = randf_range(-arena_size.y/2 , arena_size.y/2)
 	var type : int = randi_range(0,2)
 	var enemy = not_movable_enemy[type].instantiate()
 	enemy.position = point
