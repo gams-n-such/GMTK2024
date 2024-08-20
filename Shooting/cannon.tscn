@@ -16,10 +16,9 @@ collision_mask = 19
 unique_name_in_owner = true
 script = ExtResource("2_i6bhv")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Rotator"]
-
 [node name="Sprite2D" type="Sprite2D" parent="Rotator"]
 position = Vector2(64, 0)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_gf5fy")
 
 [node name="Muzzle" type="Node2D" parent="Rotator/Sprite2D"]
