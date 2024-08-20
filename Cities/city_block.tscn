@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://ckgbyjxbmxc80"]
+[gd_scene load_steps=7 format=3 uid="uid://ckgbyjxbmxc80"]
 
 [ext_resource type="Script" path="res://Cities/city_block.gd" id="1_37cqh"]
 [ext_resource type="Texture2D" uid="uid://bcvuql87haw7y" path="res://Cities/hexagon_horizontal_white.svg" id="2_eonky"]
 [ext_resource type="Texture2D" uid="uid://dghs7y4q33evm" path="res://Cities/Art/hex_base.png" id="2_wicph"]
 [ext_resource type="Script" path="res://Attributes/attribute.gd" id="3_64t7v"]
 [ext_resource type="Texture2D" uid="uid://75cy31t8vbuu" path="res://CityBlocks/PlayerCore/central_building.png" id="4_y30wh"]
+[ext_resource type="Script" path="res://Cities/health_tracker_color.gd" id="6_bw33l"]
 
 [node name="CityBlock" type="CollisionPolygon2D"]
 polygon = PackedVector2Array(-57, 0, -28, -51, 29, -51, 58, 0, 29, 50, -27, 50)
@@ -39,5 +40,10 @@ update_scale = false
 [node name="Building" type="Sprite2D" parent="TransformBreak/StaticRoot"]
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_y30wh")
+
+[node name="HealthTrackerColor" type="Node" parent="." node_paths=PackedStringArray("hp_attribute", "colored_node")]
+script = ExtResource("6_bw33l")
+hp_attribute = NodePath("../Health")
+colored_node = NodePath("../Base")
 
 [connection signal="value_changed" from="Health" to="." method="_on_health_value_changed"]
