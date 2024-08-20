@@ -136,12 +136,6 @@ unique_name_in_owner = true
 autoplay = true
 playback_type = 1
 
-[node name="WinFanfare" type="AudioStreamPlayer" parent="."]
-playback_type = 1
-
-[node name="LoseFanfare" type="AudioStreamPlayer" parent="."]
-playback_type = 1
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="HUD" parent="CanvasLayer" instance=ExtResource("5_v46ch")]
