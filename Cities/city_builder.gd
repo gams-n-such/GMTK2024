@@ -58,6 +58,9 @@ func _input(event):
 			get_tree().paused = false
 			self.get_parent().remove_child(self)
 			self.queue_free()
+		if event.button_index == MOUSE_BUTTON_RIGHT and event.is_released():
+			selected_block.rotate(PI / 3)
+			reset_preview_rotation()
 			
 	elif event is InputEventKey:
 		if event.pressed:
@@ -65,12 +68,6 @@ func _input(event):
 				camera.zoom *= Vector2(.5, .5)
 			if event.key_label == KEY_PLUS:
 				camera.zoom *= Vector2(2, 2)
-			if event.keycode == KEY_E:
-				selected_block.rotate(PI / 3)
-				reset_preview_rotation()
-			if event.keycode == KEY_Q:
-				selected_block.rotate(-PI / 3)
-				reset_preview_rotation()
 
 func find_closest_available_spot():
 	var closest:= 0 
