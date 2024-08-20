@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://ctki8vhvpk2hb"]
+[gd_scene load_steps=12 format=3 uid="uid://ctki8vhvpk2hb"]
 
 [ext_resource type="PackedScene" uid="uid://druumpy3weu4j" path="res://Game/game_manager.tscn" id="1_62vyi"]
 [ext_resource type="Script" path="res://Game/game_arena.gd" id="1_h22ja"]
 [ext_resource type="PackedScene" uid="uid://s00l0baoakcg" path="res://Game/game_boundary.tscn" id="2_tlalu"]
+[ext_resource type="Texture2D" uid="uid://dw5pgg8v2w585" path="res://Arenas/ground.png" id="3_3enpa"]
 [ext_resource type="PackedScene" uid="uid://dd0noa2k8ss5q" path="res://Player/player_city.tscn" id="4_64c1x"]
 [ext_resource type="PackedScene" uid="uid://bta3w85fgsee8" path="res://UI/city_hud.tscn" id="5_v46ch"]
 [ext_resource type="Script" path="res://Game/enemy_spawner.gd" id="6_wp1bk"]
@@ -10,15 +11,6 @@
 [ext_resource type="PackedScene" uid="uid://bnnwq33neholh" path="res://Pickups/Experience/pickup_experience_1.tscn" id="8_3fgm8"]
 [ext_resource type="PackedScene" uid="uid://meip5p2tuuaw" path="res://Pickups/Experience/pickup_experience_3.tscn" id="9_jcm7m"]
 [ext_resource type="PackedScene" uid="uid://b1ht3wltpsjp0" path="res://Pickups/Experience/pickup_experience_5.tscn" id="10_6o1vf"]
-
-[sub_resource type="Gradient" id="Gradient_y4s5f"]
-offsets = PackedFloat32Array(0.115942, 0.927536)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_h2qrw"]
-gradient = SubResource("Gradient_y4s5f")
-width = 512
-height = 512
-fill_to = Vector2(1, 1)
 
 [node name="GameArena" type="Node" groups=["Arena"]]
 script = ExtResource("1_h22ja")
@@ -30,104 +22,14 @@ script = ExtResource("1_h22ja")
 [node name="Ground" type="Node2D" parent="SceneRoot"]
 z_index = -100
 
-[node name="GroundSprite" type="Sprite2D" parent="SceneRoot/Ground"]
-texture = SubResource("GradientTexture2D_h2qrw")
-
-[node name="GroundSprite2" type="Sprite2D" parent="SceneRoot/Ground"]
-position = Vector2(512, 0)
-texture = SubResource("GradientTexture2D_h2qrw")
-
-[node name="GroundSprite3" type="Sprite2D" parent="SceneRoot/Ground"]
-position = Vector2(-512, 0)
-texture = SubResource("GradientTexture2D_h2qrw")
-
-[node name="GroundSprite4" type="Sprite2D" parent="SceneRoot/Ground"]
-position = Vector2(-1024, 0)
-texture = SubResource("GradientTexture2D_h2qrw")
-
-[node name="GroundSprite5" type="Sprite2D" parent="SceneRoot/Ground"]
-position = Vector2(1024, 0)
-texture = SubResource("GradientTexture2D_h2qrw")
-
-[node name="GroundSprite6" type="Sprite2D" parent="SceneRoot/Ground"]
-position = Vector2(0, 512)
-texture = SubResource("GradientTexture2D_h2qrw")
-
-[node name="GroundSprite7" type="Sprite2D" parent="SceneRoot/Ground"]
-position = Vector2(512, 512)
-texture = SubResource("GradientTexture2D_h2qrw")
-
-[node name="GroundSprite8" type="Sprite2D" parent="SceneRoot/Ground"]
-position = Vector2(-512, 512)
-texture = SubResource("GradientTexture2D_h2qrw")
-
-[node name="GroundSprite9" type="Sprite2D" parent="SceneRoot/Ground"]
-position = Vector2(-1024, 512)
-texture = SubResource("GradientTexture2D_h2qrw")
-
-[node name="GroundSprite10" type="Sprite2D" parent="SceneRoot/Ground"]
-position = Vector2(1024, 512)
-texture = SubResource("GradientTexture2D_h2qrw")
-
-[node name="GroundSprite11" type="Sprite2D" parent="SceneRoot/Ground"]
-position = Vector2(0, -512)
-texture = SubResource("GradientTexture2D_h2qrw")
-
-[node name="GroundSprite12" type="Sprite2D" parent="SceneRoot/Ground"]
-position = Vector2(512, -512)
-texture = SubResource("GradientTexture2D_h2qrw")
-
-[node name="GroundSprite13" type="Sprite2D" parent="SceneRoot/Ground"]
-position = Vector2(-512, -512)
-texture = SubResource("GradientTexture2D_h2qrw")
-
-[node name="GroundSprite14" type="Sprite2D" parent="SceneRoot/Ground"]
-position = Vector2(-1024, -512)
-texture = SubResource("GradientTexture2D_h2qrw")
-
-[node name="GroundSprite15" type="Sprite2D" parent="SceneRoot/Ground"]
-position = Vector2(1024, -512)
-texture = SubResource("GradientTexture2D_h2qrw")
-
-[node name="GroundSprite16" type="Sprite2D" parent="SceneRoot/Ground"]
-position = Vector2(0, -1024)
-texture = SubResource("GradientTexture2D_h2qrw")
-
-[node name="GroundSprite17" type="Sprite2D" parent="SceneRoot/Ground"]
-position = Vector2(512, -1024)
-texture = SubResource("GradientTexture2D_h2qrw")
-
-[node name="GroundSprite18" type="Sprite2D" parent="SceneRoot/Ground"]
-position = Vector2(-512, -1024)
-texture = SubResource("GradientTexture2D_h2qrw")
-
-[node name="GroundSprite19" type="Sprite2D" parent="SceneRoot/Ground"]
-position = Vector2(-1024, -1024)
-texture = SubResource("GradientTexture2D_h2qrw")
-
-[node name="GroundSprite20" type="Sprite2D" parent="SceneRoot/Ground"]
-position = Vector2(1024, -1024)
-texture = SubResource("GradientTexture2D_h2qrw")
-
-[node name="GroundSprite21" type="Sprite2D" parent="SceneRoot/Ground"]
-position = Vector2(0, 1024)
-texture = SubResource("GradientTexture2D_h2qrw")
-
-[node name="GroundSprite22" type="Sprite2D" parent="SceneRoot/Ground"]
-position = Vector2(512, 1024)
-texture = SubResource("GradientTexture2D_h2qrw")
-
-[node name="GroundSprite23" type="Sprite2D" parent="SceneRoot/Ground"]
-position = Vector2(-512, 1024)
-texture = SubResource("GradientTexture2D_h2qrw")
-
-[node name="GroundSprite24" type="Sprite2D" parent="SceneRoot/Ground"]
-position = Vector2(-1024, 1024)
-texture = SubResource("GradientTexture2D_h2qrw")
-
-[node name="GroundSprite25" type="Sprite2D" parent="SceneRoot/Ground"]
-position = Vector2(1024, 1024)
-texture = SubResource("GradientTexture2D_h2qrw")
+[node name="TextureRect" type="TextureRect" parent="SceneRoot/Ground"]
+offset_left = -2560.0
+offset_top = -2560.0
+offset_right = 2568.0
+offset_bottom = 2560.0
+texture = ExtResource("3_3enpa")
+expand_mode = 2
+stretch_mode = 1
 
 [node name="GameBoundary" parent="SceneRoot" instance=ExtResource("2_tlalu")]
 unique_name_in_owner = true
