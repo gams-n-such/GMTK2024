@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://sewcfet6gw5k"]
+[gd_scene load_steps=11 format=3 uid="uid://sewcfet6gw5k"]
 
 [ext_resource type="PackedScene" uid="uid://cm03as56e30f0" path="res://Shooting/cannon.tscn" id="1_tf16g"]
 [ext_resource type="PackedScene" uid="uid://cp7fj7m2xrtb0" path="res://CityBlocks/PlayerCore/player_core_projectile.tscn" id="2_3ma57"]
 [ext_resource type="Script" path="res://CityBlocks/PlayerCore/player_core_cannon.gd" id="2_enb5a"]
 [ext_resource type="Script" path="res://Shooting/cannon_config.gd" id="3_aej5y"]
+[ext_resource type="Script" path="res://CityBlocks/PlayerCore/gpu_particles_2d.gd" id="5_cf7vw"]
 
 [sub_resource type="Resource" id="Resource_6hlcn"]
 script = ExtResource("3_aej5y")
@@ -14,6 +15,32 @@ bullets_per_series = 1
 reload_between_shots = 0.2
 reload_between_series = 1.0
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_78lph"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0pgti"]
+lifetime_randomness = 1.0
+particle_flag_align_y = true
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(50, 5, 5)
+emission_shape = 1
+emission_sphere_radius = 1.0
+angle_min = 1.07288e-05
+angle_max = 1.07288e-05
+direction = Vector3(-1, 0, 0)
+spread = 0.0
+initial_velocity_max = 1.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.5
+
+[sub_resource type="Gradient" id="Gradient_wr5yd"]
+offsets = PackedFloat32Array(0, 0.449153, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 0.941176, 0.0588235, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_63a5k"]
+gradient = SubResource("Gradient_wr5yd")
+fill = 1
+fill_from = Vector2(0.506098, 0.493902)
+
 [node name="Cannon" instance=ExtResource("1_tf16g")]
 script = ExtResource("2_enb5a")
 config = SubResource("Resource_6hlcn")
@@ -21,7 +48,19 @@ config = SubResource("Resource_6hlcn")
 [node name="TargetingRange" parent="." index="0"]
 collision_mask = 18
 
-[node name="AnimatedSprite2D" parent="Rotator" index="0"]
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Rotator" index="0"]
+material = SubResource("CanvasItemMaterial_78lph")
+position = Vector2(111, 3)
+rotation = -3.05723
+scale = Vector2(1, 1)
+amount = 100
+process_material = SubResource("ParticleProcessMaterial_0pgti")
+texture = SubResource("GradientTexture2D_63a5k")
+collision_base_size = 0.1
+script = ExtResource("5_cf7vw")
+c = Color(0.332505, 0.300094, 0.167761, 1)
+
+[node name="AnimatedSprite2D" parent="Rotator" index="1"]
 animation = &""
 
 [node name="Muzzle" parent="Rotator/Sprite2D" index="0"]
@@ -31,3 +70,5 @@ position = Vector2(58, 0)
 
 [node name="CursorTarget" type="Node2D" parent="Node" index="0"]
 unique_name_in_owner = true
+
+[connection signal="on_shoot" from="." to="Rotator/GPUParticles2D" method="_on_cannon_on_shoot"]
