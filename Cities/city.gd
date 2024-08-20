@@ -51,7 +51,8 @@ func destroy() -> void:
 	_destroying = true
 	destroyed.emit(self)
 	# TODO: VFX/SFX/animation
-	# Do not call queue_free()
+	if self is not PlayerCity:
+		queue_free()
 
 func _on_block_destroyed(block : CityBlock) -> void:
 	remove_city_block(block)
