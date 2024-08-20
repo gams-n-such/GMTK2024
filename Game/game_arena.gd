@@ -36,12 +36,12 @@ func _generate_player_upgrade_options(num : int) -> Array[CityBlock]:
 func _on_player_city_destroyed() -> void:
 	game_over(false)
 
+@onready var game_over_scene : PackedScene = preload("res://UI/game_over_screen.tscn")
+
 func game_over(win : bool) -> void:
 	$SceneRoot.process_mode = Node.PROCESS_MODE_DISABLED
 	$BGM.stop()
-	if win:
-		$WinFanfare.play()
-	else:
-		$LoseFanfare.play()
-	
+	var game_over_screen = game_over_scene.instantiate()
+	game_over_screen.win = win
+	$CanvasLayer.add_child(game_over_screen)
 	pass

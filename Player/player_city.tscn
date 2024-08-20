@@ -10,6 +10,7 @@
 [node name="PlayerCity" node_paths=PackedStringArray("core_block") groups=["Player"] instance=ExtResource("1_oym16")]
 script = ExtResource("2_c1uh5")
 core_block = NodePath("Holder at (8, 8)/PlayerCore")
+is_player = true
 
 [node name="Body" parent="." index="0"]
 collision_layer = 1
@@ -29,9 +30,10 @@ unique_name_in_owner = true
 script = ExtResource("4_2at55")
 max_value = 20.0
 
-[node name="PlayerController" type="Node" parent="." index="3"]
+[node name="PlayerController" type="Node" parent="." index="3" node_paths=PackedStringArray("controlled_unit")]
 unique_name_in_owner = true
 script = ExtResource("4_s88db")
+controlled_unit = NodePath("..")
 
 [node name="Holder at (8, 8)" parent="." index="4" instance=ExtResource("6_n15v5")]
 spot = Vector2i(8, 8)
