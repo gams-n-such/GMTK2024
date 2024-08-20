@@ -44,7 +44,10 @@ func _on_block_destroyed(block : CityBlock) -> void:
 
 #region BlockManagement
 
+@export var is_player : bool = false
+
 func _register_block(block : CityBlock) -> void:
+	block.set_is_player(is_player)
 	block.destroyed.connect(_on_block_destroyed)
 
 func _unregister_block(block : CityBlock) -> void:

@@ -26,6 +26,7 @@ script = ExtResource("1_0bx1k")
 config = SubResource("Resource_pg5dm")
 
 [node name="ProjectileCollider" type="CollisionShape2D" parent="."]
+unique_name_in_owner = true
 shape = SubResource("CircleShape2D_nywbw")
 
 [node name="DeathTimer" type="Timer" parent="."]

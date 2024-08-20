@@ -9,6 +9,13 @@ func _ready() -> void:
 	%SeriesTimer.wait_time = config.reload_between_shots
 	pass # Replace with function body.
 
+var is_player : bool
+func set_is_player(player : bool) -> void:
+	is_player = player
+	if player:
+		%TargetingRange.collision_mask = CollisionStatics.player_targeting_mask
+	else:
+		%TargetingRange.collision_mask = CollisionStatics.enemy_targeting_mask
 
 func _process(delta: float) -> void:
 	pass
@@ -109,6 +116,7 @@ func spawn_projectile() -> void:
 	# FIXME: revisit projectile spawning
 	projectile.global_position = %Muzzle.global_position
 	projectile.global_rotation = %Muzzle.global_rotation
+	projectile.set_is_player(is_player)
 	get_tree().root.add_child(projectile)
 	emit_signal("on_shoot")
 

@@ -10,6 +10,7 @@
 [node name="PlayerCity" node_paths=PackedStringArray("core_block") groups=["Player"] instance=ExtResource("1_oym16")]
 script = ExtResource("2_c1uh5")
 core_block = NodePath("Holder at (8, 8)/PlayerCore")
+is_player = true
 
 [node name="Body" parent="." index="0"]
 collision_layer = 1
