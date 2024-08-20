@@ -1,25 +1,30 @@
 extends Node
 
-var city_builder: CityBuilder = null
-
 @onready var game_config : GameConfig = preload("res://default_game_config.tres")
+
+var arena_size : Vector2:
+	get:
+		return %GameBoundary.arena_size
 
 func _ready():
 	%HUD.player = %PlayerCity
 	%PlayerCity.progression_config = game_config.progression_settings
+	%PlayerCity.get_level().value_changed.connect(_on_player_level_changed)
 
+func _on_player_level_changed(attribute : Attribute, new_value : float, old_value : float) -> void:
+	if new_value > old_value:
+		upgrade_player()
 
-func _input(event):
-	if event is InputEventKey and event.keycode == KEY_F and event.is_released() and city_builder == null:
-		#var body = ($SceneRoot/PlayerCity as City).get_node("Body")
-		var city: City = ($SceneRoot/PlayerCity as City)
-		var city_blocks: Array[CityBlock]
-		#body.paused = true
-		for i in range(3):
-			city_blocks.push_back(preload("res://Cities/city_block.tscn").instantiate())
-		city_blocks[0].get_node("CityBlockArtPlaceholder").texture = preload("res://cities/city_block_art_placeholder_red.png")
-		city_blocks[1].get_node("CityBlockArtPlaceholder").texture = preload("res://cities/city_block_art_placeholder_green.png")
-		city_blocks[2].get_node("CityBlockArtPlaceholder").texture = preload("res://cities/city_block_art_placeholder_blue.png")
-		city_builder = preload("res://Cities/city_builder.tscn").instantiate()
-		city_builder.setup(city_blocks, city)
-		self.add_child(city_builder)
+func upgrade_player() -> void:
+	var city: City = %PlayerCity
+	var upgrade_options : Array[CityBlock] = _generate_player_upgrade_options(3)
+	var city_builder = preload("res://Cities/city_builder.tscn").instantiate()
+	city_builder.setup(upgrade_options, city)
+	self.add_child(city_builder)
+
+func _generate_player_upgrade_options(num : int) -> Array[CityBlock]:
+	var result : Array[CityBlock] = []
+	for i in range(num):
+		var block_scene = game_config.upgrade_options_chances.get_random_object() as PackedScene
+		result.push_back(block_scene.instantiate())
+	return result

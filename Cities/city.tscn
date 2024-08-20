@@ -1,8 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://dhljesxsbvebm"]
+[gd_scene load_steps=3 format=3 uid="uid://dhljesxsbvebm"]
 
 [ext_resource type="Script" path="res://Cities/city.gd" id="1_onjrr"]
 [ext_resource type="Script" path="res://Cities/city_movement.gd" id="2_wwfok"]
-[ext_resource type="PackedScene" uid="uid://ddc653ndo7epr" path="res://CityBlocks/PlayerCore/player_core_block.tscn" id="3_e4sed"]
 
 [node name="City" type="Node2D"]
 script = ExtResource("1_onjrr")
@@ -11,5 +10,3 @@ script = ExtResource("1_onjrr")
 collision_layer = 2
 collision_mask = 52
 script = ExtResource("2_wwfok")
-
-[node name="Core" parent="Body" instance=ExtResource("3_e4sed")]

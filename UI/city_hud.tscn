@@ -1,13 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bta3w85fgsee8"]
+[gd_scene load_steps=6 format=3 uid="uid://bta3w85fgsee8"]
 
 [ext_resource type="Script" path="res://UI/city_hud.gd" id="1_lkqaf"]
 [ext_resource type="Script" path="res://UI/attribute_bar.gd" id="2_1mjcm"]
 [ext_resource type="Script" path="res://UI/attribute_label.gd" id="2_q6krm"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_efbw1"]
-font_size = 32
-outline_size = 5
-outline_color = Color(0, 0, 0, 1)
+[ext_resource type="LabelSettings" uid="uid://bye8dphwcw4ek" path="res://UI/hud_labels_settings.tres" id="3_6teng"]
+[ext_resource type="PackedScene" uid="uid://crtv2wvbhxhhn" path="res://UI/game_time_label.tscn" id="5_pqu0a"]
 
 [node name="CityHUD" type="Control"]
 layout_mode = 3
@@ -54,7 +51,20 @@ offset_top = 10.0
 offset_right = 77.0
 offset_bottom = 33.0
 text = "Level: 25"
-label_settings = SubResource("LabelSettings_efbw1")
+label_settings = ExtResource("3_6teng")
 script = ExtResource("2_q6krm")
 attribute_name = "Level"
 show_attribute_name = true
+
+[node name="GameTimeLabel" parent="VSplitContainer/Control" instance=ExtResource("5_pqu0a")]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.0
+offset_left = -41.0
+offset_top = 10.0
+offset_right = 41.0
+offset_bottom = 55.0
+grow_vertical = 1
+label_settings = ExtResource("3_6teng")

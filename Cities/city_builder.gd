@@ -58,6 +58,9 @@ func _input(event):
 			get_tree().paused = false
 			self.get_parent().remove_child(self)
 			self.queue_free()
+		if event.button_index == MOUSE_BUTTON_RIGHT and event.is_released():
+			selected_block.rotate(PI / 3)
+			reset_preview_rotation()
 			
 	elif event is InputEventKey:
 		if event.pressed:
@@ -65,12 +68,6 @@ func _input(event):
 				camera.zoom *= Vector2(.5, .5)
 			if event.key_label == KEY_PLUS:
 				camera.zoom *= Vector2(2, 2)
-			if event.keycode == KEY_E:
-				selected_block.rotate(PI / 3)
-				reset_preview_rotation()
-			if event.keycode == KEY_Q:
-				selected_block.rotate(-PI / 3)
-				reset_preview_rotation()
 
 func find_closest_available_spot():
 	var closest:= 0 
@@ -97,9 +94,11 @@ func reset_preview_rotation():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-
-	var input_direction: Vector2 = Input.get_vector("move_left", "move_right", "move_up", "move_down")
+	var input_direction: Vector2 = Input.get_vector("left", "right", "up", "down")
 	camera.translate(input_direction * 10)
 	camera.global_position.x = clampf(camera.global_position.x, bounding_box[0], bounding_box[1])
 	camera.global_position.y = clampf(camera.global_position.y, bounding_box[2], bounding_box[3])
 	pass
+
+func _exit_tree() -> void:
+	camera.position = Vector2.ZERO

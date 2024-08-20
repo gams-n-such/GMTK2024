@@ -40,5 +40,5 @@ func update_value() -> void:
 	if value <= 0:
 		visible = false
 
-func _on_value_changed(attribute: Attribute, new_value: float) -> void:
+func _on_value_changed(attribute: Attribute, new_value: float, old_value: float) -> void:
 	update_value()

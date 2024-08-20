@@ -1,3 +1,4 @@
+class_name CityMovement
 extends CharacterBody2D
 
 @export var acceleration : float = 250
@@ -7,10 +8,6 @@ extends CharacterBody2D
 
 var move_direction : Vector2 = Vector2(0, 0)
 var rotate_target : Vector2 = Vector2(0, 0)
-
-func set_move_input(new_direction : Vector2) -> void:
-	
-	pass
 
 func _physics_process(delta) -> void:
 	if move_direction != null:
@@ -31,6 +28,6 @@ func _physics_process(delta) -> void:
 	
 	move_and_slide()
 
-func _move_to(move_dir, rotate_tar):
+func move_to(move_dir, rotate_tar):
 	move_direction = move_dir
 	rotate_target = rotate_tar

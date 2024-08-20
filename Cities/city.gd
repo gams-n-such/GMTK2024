@@ -3,6 +3,8 @@ extends Node
 
 signal destroyed(city : City)
 
+@export var core_block : CityBlock
+
 @export var outer_radius: float = 128 / 2
 var inner_radius: float = sqrt(3) / 2 * outer_radius
 var origin_offset: Vector2 = Vector2(0, 0)
@@ -14,13 +16,47 @@ var block_to_spot:= {}
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	setup_grid()
+	core_block.destroyed.connect(_on_core_block_destroyed)
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
 
+func get_input_target() -> Node:
+	return $Body
+
+func _on_core_block_destroyed(core_block : CityBlock) -> void:
+	destroy()
+
+var _destroying : bool = false
+
+func destroy() -> void:
+	if _destroying:
+		return
+	_destroying = true
+	destroyed.emit(self)
+	# TODO: VFX/SFX/animation
+	# Do not call queue_free()
+
+func _on_block_destroyed(block : CityBlock) -> void:
+	remove_city_block(block)
+
+#region BlockManagement
+
+func _register_block(block : CityBlock) -> void:
+	block.destroyed.connect(_on_block_destroyed)
+
+func _unregister_block(block : CityBlock) -> void:
+	block.destroyed.disconnect(_on_block_destroyed)
+
+func _destroy_block(block : CityBlock) -> void:
+	block.destroy()
+
+#endregion BlockManagement
+
 #region hex_grid
+
 func setup_grid():
 	for i in grid_size.y:
 		grid.push_back([])
@@ -108,17 +144,22 @@ func add_city_block_spot(spot: Vector2i, block: CityBlock):
 		print("spot [%s] is not available", str(spot))
 		return
 	available_spots.remove_at(index)
-	if (block.get_parent() != null): block.get_parent().remove_child(block) # reparenting given ref
-	get_node("Body").add_child(block)
-	grid[spot.y][spot.x] = block
-	block_to_spot.get_or_add(block, spot)
-	block.position = spot_to_position(spot)
+	if (block.get_parent() != null):
+		block.get_parent().remove_child(block) # reparenting given ref
+	$Body.add_child(block)
+	_add_block_internal(spot, block)
 	available_spots.append_array(get_neighbouring_spots(spot).filter(is_spot_not_occupied))
 	available_spots = remove_duplicates(available_spots)
 	# for debugging
 	#reset_available_spots()
 	#print("city block added")
 	#print(available_spots)
+
+func _add_block_internal(spot: Vector2i, block: CityBlock):
+	grid[spot.y][spot.x] = block
+	block_to_spot.get_or_add(block, spot)
+	block.position = spot_to_position(spot)
+	_register_block(block)
 
 func remove_city_block(block: CityBlock):
 	if block_to_spot.has(block):
@@ -127,15 +168,16 @@ func remove_city_block(block: CityBlock):
 		print("block is not in the grid")
 
 func remove_city_block_at_spot(spot: Vector2i):
-	var block:= grid[spot.y][spot.x] as CityBlock
-	grid[spot.y][spot.x] = null
-	block_to_spot.erase(block)
-	self.remove_child(block)
-	block.queue_free()
-	block = null
+	_remove_block_internal(spot)
 	remove_unconnected_blocks()
 
-func remove_unconnected_blocks():
+func _remove_block_internal(spot: Vector2i):
+	var block = grid[spot.y][spot.x] as CityBlock
+	grid[spot.y][spot.x] = null
+	block_to_spot.erase(block)
+	_unregister_block(block)
+
+func _find_unconnected_blocks() -> Dictionary:
 	var not_visited = block_to_spot.duplicate()
 	var to_visit: Array[Array]
 	var middle: Vector2i = Vector2i(grid_size.x / 2, grid_size.y / 2)
@@ -153,22 +195,29 @@ func remove_unconnected_blocks():
 			for sp in neighboring_spots:
 				to_visit.push_back([grid[sp.y][sp.x], sp])
 	
-	for key in not_visited.keys():
-		block = key
-		spot = not_visited.get(key)
-		grid[spot.y][spot.x] = null
-		block_to_spot.erase(block)
-		self.remove_child(block)
-		block.queue_free()
-		block = null
-	
+	return not_visited
+
+func remove_unconnected_blocks():
+	var unconnected = _find_unconnected_blocks()
+	for block in unconnected.keys():
+		var spot = unconnected.get(block)
+		_remove_block_internal(spot)
+		_destroy_block(block)
+	reset_available_spots()
+
+func destroy_unconnected_blocks():
+	var unconnected = _find_unconnected_blocks()
+	for block in unconnected.keys():
+		var spot = unconnected.get(block)
+		_remove_block_internal(spot)
+		_destroy_block(block)
 	reset_available_spots()
 
 # returns array[[spot: Vector2i, global_position: Vector2], ...]
 func get_available_spots() -> Array[Array]:
-	print(get_parent().rotation)
+	#print(get_parent().rotation)
 	var result: Array[Array]
 	for spot in available_spots:
-		result.push_back([spot, spot_to_position(spot).rotated(get_node("Body").global_rotation) + get_node("Body").global_position])
+		result.push_back([spot, spot_to_position(spot).rotated($Body.global_rotation) + $Body.global_position])
 	return result
 #endregion 

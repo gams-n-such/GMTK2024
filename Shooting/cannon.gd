@@ -100,6 +100,8 @@ func _on_series_ended() -> void:
 # FIXME: revisit projectile spawning
 #signal shot(projectile : Projectile, muzzle_transform : Transform2D)
 
+signal on_shoot
+
 func spawn_projectile() -> void:
 	var projectile = config.projectile.instantiate()
 	# FIXME: set proper instigator (character?)
@@ -108,5 +110,6 @@ func spawn_projectile() -> void:
 	projectile.global_position = %Muzzle.global_position
 	projectile.global_rotation = %Muzzle.global_rotation
 	get_tree().root.add_child(projectile)
+	emit_signal("on_shoot")
 
 #endregion Shooting

@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://ctki8vhvpk2hb"]
+[gd_scene load_steps=9 format=3 uid="uid://ctki8vhvpk2hb"]
 
 [ext_resource type="PackedScene" uid="uid://druumpy3weu4j" path="res://Game/game_manager.tscn" id="1_62vyi"]
 [ext_resource type="Script" path="res://Game/game_arena.gd" id="1_h22ja"]
 [ext_resource type="PackedScene" uid="uid://s00l0baoakcg" path="res://Game/game_boundary.tscn" id="2_tlalu"]
 [ext_resource type="PackedScene" uid="uid://dd0noa2k8ss5q" path="res://Player/player_city.tscn" id="4_64c1x"]
 [ext_resource type="PackedScene" uid="uid://bta3w85fgsee8" path="res://UI/city_hud.tscn" id="5_v46ch"]
+[ext_resource type="Script" path="res://Game/enemy_spawner.gd" id="6_wp1bk"]
 
 [sub_resource type="Gradient" id="Gradient_y4s5f"]
 offsets = PackedFloat32Array(0.115942, 0.927536)
@@ -15,7 +16,7 @@ width = 512
 height = 512
 fill_to = Vector2(1, 1)
 
-[node name="GameArena" type="Node"]
+[node name="GameArena" type="Node" groups=["Arena"]]
 script = ExtResource("1_h22ja")
 
 [node name="GameManager" parent="." instance=ExtResource("1_62vyi")]
@@ -124,6 +125,7 @@ position = Vector2(1024, 1024)
 texture = SubResource("GradientTexture2D_h2qrw")
 
 [node name="GameBoundary" parent="SceneRoot" instance=ExtResource("2_tlalu")]
+unique_name_in_owner = true
 arena_size = Vector2(2560, 2560)
 wall_thickness = 50.0
 
@@ -144,3 +146,8 @@ playback_type = 1
 
 [node name="HUD" parent="CanvasLayer" instance=ExtResource("5_v46ch")]
 unique_name_in_owner = true
+
+[node name="Logic" type="Node" parent="."]
+
+[node name="EnemySpawner" type="Node2D" parent="Logic"]
+script = ExtResource("6_wp1bk")
