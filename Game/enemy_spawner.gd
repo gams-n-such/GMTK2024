@@ -35,17 +35,14 @@ func _process(delta: float) -> void:
 		_process2()
 	
 	time40 += delta
-	if time40 >= 1:
-		if randi() % 200 / 100.0 * (time40 - 40) > 95.0:
-			time40 = 0
-			_process40()
+	if time40 >= 10:
+		time40 = 0
+		_process40()
 	
 
 func _process40():
 	for i in range(randi() % 4 + 3):
 		_spawn_jihadka()
-		_process1()
-		
 
 func _process1():
 	_spawn_city_enemy()
@@ -64,7 +61,7 @@ func _spawn_city_enemy():
 
 func _process2():
 	_spawn_not_movable_enemy()
-	
+
 func _spawn_not_movable_enemy():
 	#print("spaw not-movable enemy")
 	var arena_size : Vector2 = arena.arena_size
@@ -93,5 +90,6 @@ func _spawn_jihadka():
 		pos.x = randf_range(-arena_size.y/2 , arena_size.y/2)
 	var enemy = preload("res://Enemies/Enemy_car/Jihadka.tscn").instantiate()
 	enemy.position = pos
+	enemy.scale = Vector2(0.5, 0.5)
 	add_child(enemy)
 	jihadka_spawned.emit(enemy)
