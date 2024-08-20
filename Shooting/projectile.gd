@@ -39,7 +39,9 @@ func _on_death_timer_timeout() -> void:
 	queue_free()
 
 func _on_body_entered(body: Node) -> void:
-	if body is not City:
+	if body is CityMovement:
+		_on_target_hit(body.get_parent())
+	elif body is not City:
 		_on_target_hit(body)
 
 func _on_body_shape_entered(body_rid: RID, body: Node, body_shape_index: int, local_shape_index: int) -> void:
