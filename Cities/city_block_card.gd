@@ -5,7 +5,7 @@ class_name CityBlockCard
 signal pressed(block: CityBlock)
 var preview_texture: Texture2D
 var city_block_name:= "Name of the block"
-var city_block_stats = {"stat1": 10, "stat2": 20, "stat3": 30}
+var city_block_stats = {"stat1": 10}
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
