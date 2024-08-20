@@ -1,9 +1,9 @@
 [gd_scene load_steps=7 format=3 uid="uid://dd0noa2k8ss5q"]
 
 [ext_resource type="PackedScene" uid="uid://dhljesxsbvebm" path="res://Cities/city.tscn" id="1_oym16"]
-[ext_resource type="Script" path="res://Player/player_movement2.gd" id="2_2xs63"]
 [ext_resource type="Script" path="res://Player/player_city.gd" id="2_c1uh5"]
 [ext_resource type="Script" path="res://Attributes/attribute.gd" id="4_2at55"]
+[ext_resource type="Script" path="res://Player/player_controller.gd" id="4_s88db"]
 [ext_resource type="PackedScene" uid="uid://cmdkf4w7cb4lm" path="res://addons/citybuilderplugin/city_block_holder.tscn" id="6_n15v5"]
 [ext_resource type="PackedScene" uid="uid://ddc653ndo7epr" path="res://CityBlocks/PlayerCore/player_core_block.tscn" id="6_ulo73"]
 
@@ -13,9 +13,8 @@ script = ExtResource("2_c1uh5")
 [node name="Body" parent="." index="0"]
 collision_layer = 1
 collision_mask = 250
-script = ExtResource("2_2xs63")
 
-[node name="Camera2D" type="Camera2D" parent="Body" index="1"]
+[node name="Camera2D" type="Camera2D" parent="Body" index="0"]
 
 [node name="Level" type="Node" parent="." index="1"]
 unique_name_in_owner = true
@@ -29,7 +28,11 @@ unique_name_in_owner = true
 script = ExtResource("4_2at55")
 max_value = 20.0
 
-[node name="Holder at (8, 8)" parent="." index="3" instance=ExtResource("6_n15v5")]
+[node name="PlayerController" type="Node" parent="." index="3"]
+unique_name_in_owner = true
+script = ExtResource("4_s88db")
+
+[node name="Holder at (8, 8)" parent="." index="4" instance=ExtResource("6_n15v5")]
 spot = Vector2i(8, 8)
 
 [node name="CityBlock" parent="Holder at (8, 8)" index="1" instance=ExtResource("6_ulo73")]

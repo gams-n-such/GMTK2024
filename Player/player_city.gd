@@ -10,6 +10,7 @@ var progression_config : ProgressionConfig:
 		update_xp_to_level_up()
 
 func _ready() -> void:
+	%PlayerController.controlled_unit = self
 	setup_grid()
 	pass
 
