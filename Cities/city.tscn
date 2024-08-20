@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://dhljesxsbvebm"]
+[gd_scene load_steps=5 format=3 uid="uid://dhljesxsbvebm"]
 
 [ext_resource type="Script" path="res://Cities/city.gd" id="1_onjrr"]
 [ext_resource type="Script" path="res://Cities/city_movement.gd" id="2_wwfok"]
+[ext_resource type="AudioStream" uid="uid://b1fbafpsk38ra" path="res://SFX/City_Idle.wav" id="3_jky6n"]
+[ext_resource type="AudioStream" uid="uid://d28xe4wlhb02v" path="res://SFX/City_Move.wav" id="4_o2dwn"]
 
 [node name="City" type="Node2D"]
 script = ExtResource("1_onjrr")
@@ -10,3 +12,9 @@ script = ExtResource("1_onjrr")
 collision_layer = 2
 collision_mask = 52
 script = ExtResource("2_wwfok")
+
+[node name="IdleSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_jky6n")
+
+[node name="MovingSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_o2dwn")
