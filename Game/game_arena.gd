@@ -8,9 +8,9 @@ var arena_size : Vector2:
 		return %GameBoundary.arena_size
 
  #for debugging
-func _input(event):
-	if event is InputEventKey and event.keycode == KEY_F and event.is_pressed():
-		upgrade_player()
+#func _input(event):
+	#if event is InputEventKey and event.keycode == KEY_F and event.is_pressed():
+		#upgrade_player()
 
 func _ready():
 	%HUD.player = %PlayerCity
