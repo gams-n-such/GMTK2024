@@ -1,10 +1,8 @@
 extends Node2D
 
-var time40: float = 0
-var time30 : float = 0
-var time1 : float = 0
-var time2 : float = 0
-var time3 : float = 0
+var time1  : float = 0
+var time2  : float = 0
+var time40 : float = 0
 
 var not_movable_enemy : Array[PackedScene]
 var arena
@@ -29,8 +27,12 @@ func _process(delta: float) -> void:
 	time1 += delta
 	if time1 >= 300/ time1:
 		time1 = 0
-		_process40()
-		#_process1()
+		_process1()
+		
+	time2 += delta
+	if time2 >= 10:
+		time2 = 0
+		_process2()
 	
 	time40 += delta
 	if time40 >= 1:
@@ -43,11 +45,7 @@ func _process40():
 	for i in range(randi() % 4 + 3):
 		_spawn_jihadka()
 		_process1()
-	
-	time2 += delta
-	if time2 >= 5:
-		time2 = 0
-		_process2()
+		
 
 func _process1():
 	_spawn_city_enemy()
@@ -67,11 +65,6 @@ func _spawn_city_enemy():
 func _process2():
 	_spawn_not_movable_enemy()
 	
-func _process1():
-	print("spawned city enemy")
-	
-func _spawn_not_movable_enemy():
-	print("spawned not-movable enemy")
 func _spawn_not_movable_enemy():
 	#print("spaw not-movable enemy")
 	var arena_size : Vector2 = arena.arena_size
