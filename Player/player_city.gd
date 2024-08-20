@@ -25,7 +25,7 @@ func get_experience() -> Attribute:
 	return $Experience
 
 func _on_experience_value_changed(attribute: Attribute, new_value: float, old_value : float) -> void:
-	if (new_value > old_value):
+	if (new_value >= old_value):
 		try_level_up()
 
 func try_level_up() -> void:
