@@ -1,7 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://ci4bmvip872kn"]
+[gd_scene load_steps=3 format=3 uid="uid://ci4bmvip872kn"]
 
 [ext_resource type="PackedScene" uid="uid://dhljesxsbvebm" path="res://Cities/city.tscn" id="1_kq7vl"]
+[ext_resource type="Script" path="res://Enemies/enemy_controller.gd" id="2_blaro"]
 
 [node name="City" instance=ExtResource("1_kq7vl")]
 
 [node name="Body" parent="." index="0" groups=["Enemies"]]
+
+[node name="EnemyController" type="Node" parent="." index="1" node_paths=PackedStringArray("controlled_unit")]
+script = ExtResource("2_blaro")
+controlled_unit = NodePath("..")
