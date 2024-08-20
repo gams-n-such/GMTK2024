@@ -28,6 +28,7 @@ script = ExtResource("1_pag3j")
 [node name="SceneRoot" type="Node2D" parent="."]
 
 [node name="Ground" type="Node2D" parent="SceneRoot"]
+z_index = -100
 
 [node name="GroundSprite" type="Sprite2D" parent="SceneRoot/Ground"]
 texture = SubResource("GradientTexture2D_h2qrw")

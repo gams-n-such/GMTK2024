@@ -23,5 +23,5 @@ func destroy() -> void:
 	# TODO: drop loot
 	destroyed.emit(self)
 	# TODO: await animation end
-	await get_tree().create_timer(1.0).timeout
+	#await get_tree().create_timer(1.0).timeout
 	queue_free()

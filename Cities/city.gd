@@ -1,5 +1,5 @@
 class_name City
-extends Node
+extends Node2D
 
 signal destroyed(city : City)
 
