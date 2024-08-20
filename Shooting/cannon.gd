@@ -9,6 +9,13 @@ func _ready() -> void:
 	%SeriesTimer.wait_time = config.reload_between_shots
 	pass # Replace with function body.
 
+var is_player : bool
+func set_is_player(player : bool) -> void:
+	is_player = player
+	if player:
+		%TargetingRange.collision_mask = CollisionStatics.player_targeting_mask
+	else:
+		%TargetingRange.collision_mask = CollisionStatics.enemy_targeting_mask
 
 func _process(delta: float) -> void:
 	pass
@@ -76,9 +83,14 @@ func is_on_reload() -> bool:
 
 var _shots_left_in_series : int = 0
 
+var _first_shot : bool = true
+
 func shoot() -> void:
 	if is_on_reload():
 		return
+	if _first_shot:
+		await get_tree().create_timer(0.1).timeout
+		_first_shot = false
 	_shots_left_in_series = config.bullets_per_series
 	_shoot_single()
 	if _shots_left_in_series > 0:
@@ -104,11 +116,13 @@ signal on_shoot
 
 func spawn_projectile() -> void:
 	var projectile = config.projectile.instantiate()
+	projectile.set_is_player(is_player)
 	# FIXME: set proper instigator (character?)
 	projectile.instigator = self
 	# FIXME: revisit projectile spawning
 	projectile.global_position = %Muzzle.global_position
 	projectile.global_rotation = %Muzzle.global_rotation
+	projectile.set_is_player(is_player)
 	get_tree().root.add_child(projectile)
 	emit_signal("on_shoot")
 

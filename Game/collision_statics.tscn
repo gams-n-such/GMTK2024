@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://duk5ty67icuqw"]
+
+[ext_resource type="Script" path="res://Game/collision_statics.gd" id="1_pfnsk"]
+
+[node name="CollisionStatics" type="Node"]
+script = ExtResource("1_pfnsk")
+player_targeting_mask = 18
+player_projectile_layers = 4
+player_projectile_mask = 50
+enemy_targeting_mask = 1
+enemy_projectile_layers = 128
+enemy_projectile_mask = 33

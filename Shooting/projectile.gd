@@ -15,6 +15,18 @@ func _ready() -> void:
 	%DeathTimer.start(config.projectile_lifetime)
 	pass
 
+var is_player : bool
+func set_is_player(player : bool) -> void:
+	is_player = player
+	if player:
+		collision_layer = CollisionStatics.player_projectile_layers
+		collision_mask = CollisionStatics.player_projectile_mask
+		%ExplosionArea.collision_mask = CollisionStatics.player_projectile_mask
+	else:
+		collision_layer = CollisionStatics.enemy_projectile_layers
+		collision_mask = CollisionStatics.enemy_projectile_mask
+		%ExplosionArea.collision_mask = CollisionStatics.enemy_projectile_mask
+
 #func _draw() -> void:
 	#draw_line(Vector2.ZERO, Vector2.RIGHT * config.speed, Color.HOT_PINK, 5.0)
 

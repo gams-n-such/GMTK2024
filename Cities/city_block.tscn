@@ -1,19 +1,25 @@
-[gd_scene load_steps=5 format=3 uid="uid://ckgbyjxbmxc80"]
+[gd_scene load_steps=6 format=3 uid="uid://ckgbyjxbmxc80"]
 
 [ext_resource type="Script" path="res://Cities/city_block.gd" id="1_37cqh"]
 [ext_resource type="Texture2D" uid="uid://bcvuql87haw7y" path="res://Cities/hexagon_horizontal_white.svg" id="2_eonky"]
+[ext_resource type="Texture2D" uid="uid://dghs7y4q33evm" path="res://Cities/Art/hex_base.png" id="2_wicph"]
 [ext_resource type="Script" path="res://Attributes/attribute.gd" id="3_64t7v"]
-[ext_resource type="Texture2D" uid="uid://02jl8ij1ag5q" path="res://Cities/city_block_art_placeholder_red.png" id="4_yirpe"]
+[ext_resource type="Texture2D" uid="uid://75cy31t8vbuu" path="res://CityBlocks/PlayerCore/central_building.png" id="4_y30wh"]
 
 [node name="CityBlock" type="CollisionPolygon2D"]
 polygon = PackedVector2Array(-57, 0, -28, -51, 29, -51, 58, 0, 29, 50, -27, 50)
 script = ExtResource("1_37cqh")
 
-[node name="CityBlockArtPlaceholder_2" type="Sprite2D" parent="."]
-visible = false
-self_modulate = Color(0, 0, 0, 1)
-scale = Vector2(0.5, 0.5)
+[node name="Outline" type="Sprite2D" parent="."]
+self_modulate = Color(0, 1, 1, 1)
+show_behind_parent = true
+z_index = -1
+scale = Vector2(0.55, 0.55)
 texture = ExtResource("2_eonky")
+
+[node name="Base" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_wicph")
 
 [node name="Health" type="Node" parent="."]
 unique_name_in_owner = true
@@ -21,7 +27,17 @@ script = ExtResource("3_64t7v")
 _starting_value = 20.0
 max_value = 20.0
 
-[node name="CityBlockArtPlaceholder" type="Sprite2D" parent="."]
-texture = ExtResource("4_yirpe")
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="."]
+remote_path = NodePath("../TransformBreak/StaticRoot")
+update_rotation = false
+update_scale = false
+
+[node name="TransformBreak" type="Node" parent="."]
+
+[node name="StaticRoot" type="Node2D" parent="TransformBreak"]
+
+[node name="Building" type="Sprite2D" parent="TransformBreak/StaticRoot"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_y30wh")
 
 [connection signal="value_changed" from="Health" to="." method="_on_health_value_changed"]

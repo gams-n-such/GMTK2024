@@ -4,7 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://02jl8ij1ag5q" path="res://Cities/city_block_art_placeholder_red.png" id="2_fqlib"]
 [ext_resource type="PackedScene" uid="uid://sewcfet6gw5k" path="res://CityBlocks/PlayerCore/player_core_cannon.tscn" id="2_pkc60"]
 
-[node name="CityBlock" instance=ExtResource("1_0whol")]
+[node name="CityBlock" node_paths=PackedStringArray("cannon") instance=ExtResource("1_0whol")]
+cannon = NodePath("Cannon")
 
 [node name="CityBlockArtPlaceholder_2" parent="." index="0"]
 texture = null

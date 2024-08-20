@@ -3,6 +3,14 @@ extends Node2D
 
 signal destroyed(city_block : CityBlock)
 
+@export var cannon : Node
+
+var is_player : bool
+func set_is_player(player : bool) -> void:
+	is_player = player
+	if cannon:
+		cannon.set_is_player(player)
+
 func take_damage(damage : float, instigator : Node, causer : Node) -> void:
 	%Health.add_instant(-damage)
 

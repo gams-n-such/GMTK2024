@@ -1,15 +1,9 @@
 extends StaticBody2D
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+signal destroyed (object)
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
-signal destroyed
+@export var drop_chance : float = 0.91
+@export var drop_count : int = 5
 
 func take_damage(damage : float, instigator : Node, causer : Node) -> void:
 	%Health.add_instant(-damage)
@@ -27,7 +21,7 @@ func destroy() -> void:
 	# TODO: VFX
 	# TODO: SFX
 	# TODO: drop loot
-	destroyed.emit()
+	destroyed.emit(self)
 	# TODO: await animation end
 	await get_tree().create_timer(1.0).timeout
 	queue_free()
