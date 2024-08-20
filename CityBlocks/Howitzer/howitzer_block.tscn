@@ -4,7 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://cton2t0o6hv45" path="res://CityBlocks/Howitzer/howitzer_cannon.tscn" id="2_lxqtn"]
 [ext_resource type="Texture2D" uid="uid://c8qlsak0nxm3t" path="res://CityBlocks/Howitzer/canon_building.png" id="3_5exqe"]
 
-[node name="CityBlock" instance=ExtResource("1_bfc45")]
+[node name="CityBlock" node_paths=PackedStringArray("cannon") instance=ExtResource("1_bfc45")]
+cannon = NodePath("Cannon")
 
 [node name="Cannon" parent="." index="2" instance=ExtResource("2_lxqtn")]
 rotation = -0.523599
