@@ -94,9 +94,11 @@ func reset_preview_rotation():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-
 	var input_direction: Vector2 = Input.get_vector("left", "right", "up", "down")
 	camera.translate(input_direction * 10)
 	camera.global_position.x = clampf(camera.global_position.x, bounding_box[0], bounding_box[1])
 	camera.global_position.y = clampf(camera.global_position.y, bounding_box[2], bounding_box[3])
 	pass
+
+func _exit_tree() -> void:
+	camera.position = Vector2.ZERO
