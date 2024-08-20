@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="GameConfig" load_steps=4 format=3 uid="uid://d1qrlcuxugcch"]
+[gd_resource type="Resource" script_class="GameConfig" load_steps=4 format=3 uid="uid://bl4qggancfpbt"]
 
 [ext_resource type="Script" path="res://Game/progression_config.gd" id="1_5i5r3"]
 [ext_resource type="Script" path="res://Game/game_config.gd" id="2_1c1qx"]

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Arenas/Test/test_arena.gd" id="1_pag3j"]
 [ext_resource type="PackedScene" uid="uid://dd0noa2k8ss5q" path="res://Player/player_city.tscn" id="2_5gbta"]
-[ext_resource type="PackedScene" uid="uid://s00l0baoakcg" path="res://Game/game_boundary.tscn" id="2_rt7cg"]
+[ext_resource type="PackedScene" path="res://Game/game_boundary.tscn" id="2_rt7cg"]
 [ext_resource type="PackedScene" path="res://GameObjects/destructible_object_factory.tscn" id="3_3qjjc"]
 [ext_resource type="PackedScene" path="res://GameObjects/destructible_object_town.tscn" id="4_7f4ic"]
 [ext_resource type="PackedScene" path="res://GameObjects/destructible_object_city.tscn" id="5_lvn8i"]
