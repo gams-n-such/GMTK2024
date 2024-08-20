@@ -1,6 +1,6 @@
 extends Control
 
-@onready var gameplay_scene : PackedScene = load("res://Game/game_arena.tscn")
+@onready var gameplay_scene : PackedScene = load("res://default_game_arena.tscn")
 @onready var tutorial_scene : PackedScene = load("res://MainMenu/how_to_play.tscn")
 @onready var options_scene : PackedScene
 
