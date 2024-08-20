@@ -29,9 +29,10 @@ unique_name_in_owner = true
 script = ExtResource("4_2at55")
 max_value = 20.0
 
-[node name="PlayerController" type="Node" parent="." index="3"]
+[node name="PlayerController" type="Node" parent="." index="3" node_paths=PackedStringArray("controlled_unit")]
 unique_name_in_owner = true
 script = ExtResource("4_s88db")
+controlled_unit = NodePath("..")
 
 [node name="Holder at (8, 8)" parent="." index="4" instance=ExtResource("6_n15v5")]
 spot = Vector2i(8, 8)
