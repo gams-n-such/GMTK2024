@@ -11,6 +11,14 @@ func _process(delta: float) -> void:
 func _ready() -> void:
 	enemy_spawner.not_movable_enemy_spawned.connect(on_not_movable_enemy_spawned)
 	enemy_spawner.jihadka_spawned.connect(on_jihadka_spawned)
+	enemy_spawner.city_spawned.connect(on_city_spawned)
+
+func on_city_spawned(object):
+	object.destroyed.connect(on_city_destroyed)
+
+func on_city_destroyed(object):
+	for i in object.drop_count :
+		spawn_exp(object.position)
 
 func on_jihadka_spawned(jihadka: Jihadka):
 	jihadka.destroyed.connect(on_jihadka_destroyed)

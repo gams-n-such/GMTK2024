@@ -2,7 +2,7 @@
 class_name EnemyController
 extends Controller
 
-var player
+var player 
 
 func _ready() -> void:
 	player = get_tree().get_first_node_in_group("Player").get_node("Body")
