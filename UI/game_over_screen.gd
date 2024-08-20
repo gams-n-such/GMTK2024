@@ -11,8 +11,6 @@ func _ready() -> void:
 		$LoseFanfare.play()
 	pass                           
 
-
-
 func _on_restart_button_pressed() -> void:
 	get_tree().reload_current_scene()
 
