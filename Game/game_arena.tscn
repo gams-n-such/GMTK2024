@@ -125,6 +125,7 @@ position = Vector2(1024, 1024)
 texture = SubResource("GradientTexture2D_h2qrw")
 
 [node name="GameBoundary" parent="SceneRoot" instance=ExtResource("2_tlalu")]
+unique_name_in_owner = true
 arena_size = Vector2(2560, 2560)
 wall_thickness = 50.0
 

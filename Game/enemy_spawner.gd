@@ -7,6 +7,7 @@ var not_movable_enemy : Array[PackedScene]
 var arena
 
 func _ready() -> void:
+	arena = get_tree().get_first_node_in_group("Arena")
 	not_movable_enemy.append( load("res://GameObjects/destructible_object_town.tscn"))
 	not_movable_enemy.append( load("res://GameObjects/destructible_object_city.tscn"))
 	not_movable_enemy.append( load("res://GameObjects/destructible_object_factory.tscn"))

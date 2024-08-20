@@ -2,6 +2,10 @@ extends Node
 
 @onready var game_config : GameConfig = preload("res://default_game_config.tres")
 
+var arena_size : Vector2:
+	get:
+		return %GameBoundary.arena_size
+
 func _ready():
 	%HUD.player = %PlayerCity
 	%PlayerCity.progression_config = game_config.progression_settings
