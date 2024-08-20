@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://sewcfet6gw5k"]
+[gd_scene load_steps=12 format=3 uid="uid://sewcfet6gw5k"]
 
 [ext_resource type="PackedScene" uid="uid://cm03as56e30f0" path="res://Shooting/cannon.tscn" id="1_tf16g"]
 [ext_resource type="PackedScene" uid="uid://cp7fj7m2xrtb0" path="res://CityBlocks/PlayerCore/player_core_projectile.tscn" id="2_3ma57"]
 [ext_resource type="Script" path="res://CityBlocks/PlayerCore/player_core_cannon.gd" id="2_enb5a"]
 [ext_resource type="Script" path="res://Shooting/cannon_config.gd" id="3_aej5y"]
 [ext_resource type="Script" path="res://CityBlocks/PlayerCore/gpu_particles_2d.gd" id="5_cf7vw"]
+[ext_resource type="Texture2D" uid="uid://c5dqvuxdk0wdd" path="res://CityBlocks/PlayerCore/central_gun.png" id="6_o5oll"]
 
 [sub_resource type="Resource" id="Resource_6hlcn"]
 script = ExtResource("3_aej5y")
@@ -52,16 +53,21 @@ collision_mask = 18
 material = SubResource("CanvasItemMaterial_78lph")
 position = Vector2(111, 3)
 rotation = -3.05723
-scale = Vector2(1, 1)
 amount = 100
 process_material = SubResource("ParticleProcessMaterial_0pgti")
 texture = SubResource("GradientTexture2D_63a5k")
 collision_base_size = 0.1
 script = ExtResource("5_cf7vw")
-c = Color(0.332505, 0.300094, 0.167761, 1)
+c = Color(1, 0.568627, 0.168627, 1)
 
 [node name="AnimatedSprite2D" parent="Rotator" index="1"]
 animation = &""
+
+[node name="Sprite2D" parent="Rotator" index="2"]
+self_modulate = Color(1, 1, 1, 1)
+position = Vector2(64, 0)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_o5oll")
 
 [node name="Muzzle" parent="Rotator/Sprite2D" index="0"]
 position = Vector2(58, 0)
