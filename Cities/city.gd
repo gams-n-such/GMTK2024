@@ -13,14 +13,28 @@ var grid: Array[Array]
 var available_spots: Array[Vector2i]
 var block_to_spot:= {}
 
+@export var drop_count = 5
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	setup_grid()
 	core_block.destroyed.connect(_on_core_block_destroyed)
 	pass
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+var was_moving : bool = true
+var is_moving : bool:
+	get:
+		return $Body.move_direction.length() > 0.1
+
 func _process(delta: float) -> void:
+	if is_moving != was_moving:
+		was_moving = is_moving
+		if is_moving:
+			$IdleSound.stop()
+			$MovingSound.play()
+		else:
+			$IdleSound.play()
+			$MovingSound.stop()
 	pass
 
 func get_input_target() -> Node:

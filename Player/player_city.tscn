@@ -40,5 +40,7 @@ spot = Vector2i(8, 8)
 
 [node name="PlayerCore" parent="Holder at (8, 8)" index="1" instance=ExtResource("6_ulo73")]
 
+[node name="AudioListener2D" type="AudioListener2D" parent="." index="5"]
+
 [connection signal="value_changed" from="Level" to="." method="_on_level_value_changed"]
 [connection signal="value_changed" from="Experience" to="." method="_on_experience_value_changed"]

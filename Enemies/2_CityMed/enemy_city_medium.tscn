@@ -1,52 +1,41 @@
-[gd_scene load_steps=9 format=3 uid="uid://i1dt22hlpy1f"]
+[gd_scene load_steps=7 format=3 uid="uid://i1dt22hlpy1f"]
 
 [ext_resource type="PackedScene" uid="uid://ci4bmvip872kn" path="res://Enemies/enemy_city.tscn" id="1_udjy6"]
 [ext_resource type="PackedScene" uid="uid://cmdkf4w7cb4lm" path="res://addons/citybuilderplugin/city_block_holder.tscn" id="2_b6l2w"]
-[ext_resource type="Script" path="res://addons/citybuilderplugin/city_block_holder.gd" id="3_ltqra"]
-[ext_resource type="PackedScene" uid="uid://ckgbyjxbmxc80" path="res://Cities/city_block.tscn" id="4_5nfr7"]
 [ext_resource type="PackedScene" uid="uid://cfhsu4wpdxyfe" path="res://CityBlocks/EnemyCore/enemy_core_block.tscn" id="5_gtnsu"]
 [ext_resource type="PackedScene" uid="uid://clieh6s6sygaa" path="res://CityBlocks/Sawblade/sawblade_block.tscn" id="6_00pvj"]
 [ext_resource type="PackedScene" uid="uid://dqgtql7po4qjj" path="res://CityBlocks/Minigun/minigun_block.tscn" id="7_qt2n8"]
 [ext_resource type="PackedScene" uid="uid://cstvve40l4313" path="res://CityBlocks/Howitzer/howitzer_block.tscn" id="8_u4808"]
 
 [node name="City" instance=ExtResource("1_udjy6")]
+drop_count = 10
 
-[node name="Holder at (9, 8)" type="Node2D" parent="." index="3" instance=ExtResource("2_b6l2w")]
+[node name="Holder at (9, 8)" parent="." index="3" instance=ExtResource("2_b6l2w")]
 position = Vector2(0, 110.851)
-script = ExtResource("3_ltqra")
 spot = Vector2i(9, 8)
-city_block = ExtResource("4_5nfr7")
 
 [node name="CityBlock" parent="Holder at (9, 8)" index="1" instance=ExtResource("5_gtnsu")]
 
-[node name="Holder at (7, 7)" type="Node2D" parent="." index="4" instance=ExtResource("2_b6l2w")]
+[node name="Holder at (7, 7)" parent="." index="4" instance=ExtResource("2_b6l2w")]
 position = Vector2(-96, -55.4256)
-script = ExtResource("3_ltqra")
 spot = Vector2i(7, 7)
-city_block = ExtResource("4_5nfr7")
 
 [node name="CityBlock2" parent="Holder at (7, 7)" index="1" instance=ExtResource("6_00pvj")]
 
-[node name="Holder at (7, 9)" type="Node2D" parent="." index="5" instance=ExtResource("2_b6l2w")]
+[node name="Holder at (7, 9)" parent="." index="5" instance=ExtResource("2_b6l2w")]
 position = Vector2(96, -55.4256)
-script = ExtResource("3_ltqra")
 spot = Vector2i(7, 9)
-city_block = ExtResource("4_5nfr7")
 
 [node name="CityBlock3" parent="Holder at (7, 9)" index="1" instance=ExtResource("6_00pvj")]
 
-[node name="Holder at (9, 7)" type="Node2D" parent="." index="6" instance=ExtResource("2_b6l2w")]
+[node name="Holder at (9, 7)" parent="." index="6" instance=ExtResource("2_b6l2w")]
 position = Vector2(-96, 166.277)
-script = ExtResource("3_ltqra")
 spot = Vector2i(9, 7)
-city_block = ExtResource("4_5nfr7")
 
 [node name="CityBlock4" parent="Holder at (9, 7)" index="1" instance=ExtResource("7_qt2n8")]
 
-[node name="Holder at (9, 9)" type="Node2D" parent="." index="7" instance=ExtResource("2_b6l2w")]
+[node name="Holder at (9, 9)" parent="." index="7" instance=ExtResource("2_b6l2w")]
 position = Vector2(96, 166.277)
-script = ExtResource("3_ltqra")
 spot = Vector2i(9, 9)
-city_block = ExtResource("4_5nfr7")
 
 [node name="CityBlock5" parent="Holder at (9, 9)" index="1" instance=ExtResource("8_u4808")]

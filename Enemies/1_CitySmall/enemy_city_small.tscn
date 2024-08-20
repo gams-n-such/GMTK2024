@@ -1,26 +1,20 @@
-[gd_scene load_steps=7 format=3 uid="uid://2g6djb8vwr2j"]
+[gd_scene load_steps=5 format=3 uid="uid://2g6djb8vwr2j"]
 
 [ext_resource type="PackedScene" uid="uid://ci4bmvip872kn" path="res://Enemies/enemy_city.tscn" id="1_lmjut"]
 [ext_resource type="PackedScene" uid="uid://cmdkf4w7cb4lm" path="res://addons/citybuilderplugin/city_block_holder.tscn" id="2_renva"]
-[ext_resource type="Script" path="res://addons/citybuilderplugin/city_block_holder.gd" id="3_4ih54"]
-[ext_resource type="PackedScene" uid="uid://ckgbyjxbmxc80" path="res://Cities/city_block.tscn" id="4_cds7q"]
 [ext_resource type="PackedScene" uid="uid://dqgtql7po4qjj" path="res://CityBlocks/Minigun/minigun_block.tscn" id="5_ilhv3"]
 [ext_resource type="PackedScene" uid="uid://clieh6s6sygaa" path="res://CityBlocks/Sawblade/sawblade_block.tscn" id="6_2f1qj"]
 
 [node name="City" instance=ExtResource("1_lmjut")]
 
-[node name="Holder at (9, 8)" type="Node2D" parent="." index="3" instance=ExtResource("2_renva")]
+[node name="Holder at (9, 8)" parent="." index="3" instance=ExtResource("2_renva")]
 position = Vector2(0, 110.851)
-script = ExtResource("3_4ih54")
 spot = Vector2i(9, 8)
-city_block = ExtResource("4_cds7q")
 
 [node name="CityBlock" parent="Holder at (9, 8)" index="1" instance=ExtResource("5_ilhv3")]
 
-[node name="Holder at (7, 9)" type="Node2D" parent="." index="4" instance=ExtResource("2_renva")]
+[node name="Holder at (7, 9)" parent="." index="4" instance=ExtResource("2_renva")]
 position = Vector2(96, -55.4256)
-script = ExtResource("3_4ih54")
 spot = Vector2i(7, 9)
-city_block = ExtResource("4_cds7q")
 
 [node name="CityBlock2" parent="Holder at (7, 9)" index="1" instance=ExtResource("6_2f1qj")]

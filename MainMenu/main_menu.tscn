@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dcoyuwarqd6yx"]
+[gd_scene load_steps=6 format=3 uid="uid://dcoyuwarqd6yx"]
 
 [ext_resource type="Script" path="res://MainMenu/main_menu.gd" id="1_uqjbj"]
 [ext_resource type="Texture2D" uid="uid://djkcrrglmfxuh" path="res://splash_art.png" id="2_0dpxo"]
+[ext_resource type="AudioStream" uid="uid://vrgg0m0rq44l" path="res://MainMenu/Menu_Music.wav" id="3_ltm0q"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hbhug"]
 bg_color = Color(0.717647, 0.266667, 0.0352941, 1)
@@ -89,6 +90,8 @@ label_settings = SubResource("LabelSettings_pd7xi")
 horizontal_alignment = 1
 
 [node name="BGM" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_ltm0q")
+autoplay = true
 
 [connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="VBoxContainer/Test" to="." method="_on_test_pressed"]

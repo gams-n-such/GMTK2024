@@ -12,6 +12,7 @@ var cities : Array[PackedScene]
 
 signal not_movable_enemy_spawned(object)
 signal jihadka_spawned(object: Jihadka)
+signal city_spawned(object)
 
 func _ready() -> void:
 	arena = get_tree().get_first_node_in_group("Arena")
@@ -62,7 +63,7 @@ func _spawn_city_enemy():
 	var enemy = cities[type].instantiate()
 	enemy.position = point
 	add_child(enemy)
-	#not_movable_enemy_spawned.emit(enemy)
+	city_spawned.emit(enemy)
 
 func _process2():
 	_spawn_not_movable_enemy()
