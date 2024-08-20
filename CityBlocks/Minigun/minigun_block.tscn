@@ -4,8 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://vuva5gpllogw" path="res://CityBlocks/Minigun/minigun_cannon.tscn" id="2_5rgim"]
 [ext_resource type="Texture2D" uid="uid://cclwwpct68qqk" path="res://CityBlocks/Minigun/minigun_building.png" id="2_agaix"]
 
-[node name="CityBlock" node_paths=PackedStringArray("cannon") instance=ExtResource("1_8h5cs")]
-cannon = NodePath("")
+[node name="CityBlock" instance=ExtResource("1_8h5cs")]
 
 [node name="Cannon" parent="." index="2" instance=ExtResource("2_5rgim")]
 
