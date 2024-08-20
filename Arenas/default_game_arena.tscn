@@ -3,3 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://ctki8vhvpk2hb" path="res://Game/game_arena.tscn" id="1_hwj5n"]
 
 [node name="GameArena" instance=ExtResource("1_hwj5n")]
+
+[node name="GameBoundary" parent="SceneRoot" index="1"]
+arena_size = Vector2(5120, 5120)
