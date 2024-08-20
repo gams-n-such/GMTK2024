@@ -20,6 +20,9 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
+func get_input_target() -> Node:
+	return $Body
+
 #region hex_grid
 func setup_grid():
 	for i in grid_size.y:
