@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://kjde8hyym3ix"]
+
+[ext_resource type="Script" path="res://Cities/city_movement.gd" id="1_1g1lr"]
+[ext_resource type="Script" path="res://Enemies/Enemy_car/jihadka.gd" id="1_oh6s0"]
+[ext_resource type="Script" path="res://Enemies/enemy_controller.gd" id="1_s4qbu"]
+[ext_resource type="Texture2D" uid="uid://l78flgtaj2s4" path="res://ArtAssets/Enemies/Jihadka/car.png" id="3_74nfy"]
+[ext_resource type="Script" path="res://Attributes/attribute.gd" id="5_suob8"]
+
+[node name="Jihadka" type="Node2D"]
+script = ExtResource("1_oh6s0")
+
+[node name="CityMovement" type="CharacterBody2D" parent="."]
+collision_layer = 2
+collision_mask = 37
+script = ExtResource("1_1g1lr")
+max_speed = 400.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CityMovement"]
+polygon = PackedVector2Array(-1, 65, 55, 59, 122, 0, 54, -58, -1, -68, -107, -62, -107, 59)
+
+[node name="Car" type="Sprite2D" parent="CityMovement"]
+texture = ExtResource("3_74nfy")
+
+[node name="EnemyController" type="Node" parent="." node_paths=PackedStringArray("controlled_unit")]
+script = ExtResource("1_s4qbu")
+controlled_unit = NodePath("..")
+
+[node name="Health" type="Node" parent="."]
+script = ExtResource("5_suob8")
+_starting_value = 5.0
+
+[connection signal="value_changed" from="Health" to="." method="_on_health_value_changed"]

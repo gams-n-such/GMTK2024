@@ -9,6 +9,8 @@ var progression_config : ProgressionConfig:
 		_progression_config = new_config
 		update_xp_to_level_up()
 
+@onready var camera : Camera2D = $Body/Camera2D
+
 func _ready() -> void:
 	setup_grid()
 	pass
