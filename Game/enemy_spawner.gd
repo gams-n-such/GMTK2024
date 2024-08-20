@@ -1,5 +1,6 @@
 extends Node2D
 
+var time  : float = 0
 var time1  : float = 0
 var time2  : float = 0
 var time40 : float = 0
@@ -24,13 +25,14 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	time1 += delta
-	if time1 >= 300/ time1:
+	time += delta 
+	time1 += delta 
+	if time1 >= clampf(300/time, 3, 0.5):
 		time1 = 0
 		_process1()
 		
 	time2 += delta
-	if time2 >= 10:
+	if time2 >= 5:
 		time2 = 0
 		_process2()
 	
@@ -44,8 +46,7 @@ func _process(delta: float) -> void:
 func _process40():
 	for i in range(randi() % 4 + 3):
 		_spawn_jihadka()
-		_process1()
-		
+
 
 func _process1():
 	_spawn_city_enemy()
