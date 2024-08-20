@@ -49,7 +49,7 @@ func _connect_signals() -> void:
 	if attribute:
 		attribute.value_changed.connect(_on_value_changed)
 
-func _on_value_changed(attribute : Attribute, new_value : float) -> void:
+func _on_value_changed(_attr : Attribute, new_value : float, old_value : float) -> void:
 	update_value()
 
 func update_value() -> void:

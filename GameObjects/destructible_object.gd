@@ -14,7 +14,7 @@ signal destroyed
 func take_damage(damage : float, instigator : Node, causer : Node) -> void:
 	%Health.add_instant(-damage)
 
-func _on_health_value_changed(attribute: Attribute, new_value: float) -> void:
+func _on_health_value_changed(attribute : Attribute, new_value : float, old_value : float) -> void:
 	if new_value <= 0.0:
 		destroy()
 
