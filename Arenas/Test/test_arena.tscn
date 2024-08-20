@@ -1,15 +1,16 @@
-[gd_scene load_steps=13 format=3 uid="uid://0kk0oi2vvwgs"]
+[gd_scene load_steps=14 format=3 uid="uid://0kk0oi2vvwgs"]
 
 [ext_resource type="Script" path="res://Arenas/Test/test_arena.gd" id="1_pag3j"]
 [ext_resource type="PackedScene" uid="uid://dd0noa2k8ss5q" path="res://Player/player_city.tscn" id="2_5gbta"]
 [ext_resource type="PackedScene" uid="uid://s00l0baoakcg" path="res://Game/game_boundary.tscn" id="2_rt7cg"]
-[ext_resource type="PackedScene" path="res://GameObjects/destructible_object_factory.tscn" id="3_3qjjc"]
-[ext_resource type="PackedScene" path="res://GameObjects/destructible_object_town.tscn" id="4_7f4ic"]
-[ext_resource type="PackedScene" path="res://GameObjects/destructible_object_city.tscn" id="5_lvn8i"]
+[ext_resource type="PackedScene" uid="uid://g453n8bumn6n" path="res://GameObjects/destructible_object_factory.tscn" id="3_3qjjc"]
+[ext_resource type="PackedScene" uid="uid://c47k4nmq3i2cr" path="res://GameObjects/destructible_object_town.tscn" id="4_7f4ic"]
+[ext_resource type="PackedScene" uid="uid://bcbc81uscox4j" path="res://GameObjects/destructible_object_city.tscn" id="5_lvn8i"]
 [ext_resource type="PackedScene" uid="uid://bta3w85fgsee8" path="res://UI/city_hud.tscn" id="7_bpvf6"]
 [ext_resource type="PackedScene" uid="uid://bnnwq33neholh" path="res://Pickups/Experience/pickup_experience_1.tscn" id="7_erxok"]
 [ext_resource type="PackedScene" uid="uid://meip5p2tuuaw" path="res://Pickups/Experience/pickup_experience_3.tscn" id="8_p8a3n"]
 [ext_resource type="PackedScene" uid="uid://b1ht3wltpsjp0" path="res://Pickups/Experience/pickup_experience_5.tscn" id="9_laoqd"]
+[ext_resource type="Script" path="res://Game/enemy_spawner.gd" id="11_u0425"]
 
 [sub_resource type="Gradient" id="Gradient_y4s5f"]
 offsets = PackedFloat32Array(0.115942, 0.927536)
@@ -205,3 +206,8 @@ unique_name_in_owner = true
 
 [node name="HUD" parent="UI" instance=ExtResource("7_bpvf6")]
 unique_name_in_owner = true
+
+[node name="Logic" type="Node2D" parent="."]
+
+[node name="EnemySpawner" type="Node2D" parent="Logic"]
+script = ExtResource("11_u0425")
