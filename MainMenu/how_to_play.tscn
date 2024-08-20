@@ -27,7 +27,7 @@ grow_vertical = 2
 custom_minimum_size = Vector2(720, 480)
 layout_mode = 2
 size_flags_vertical = 1
-text = "Use WASD or arrows to move. Use mouse to choose a direction of movement. Hit objects to collect XP, grow after filling XP progress bar. Do not let other cities to destroy your central node."
+text = "​Use WASD or arrows to move. Use mouse to choose a direction of movement. Pick up objects to collect XP, grow after filling XP progress bar. Killed buildings drop pickups. Do not let enemies to destroy your central node."
 horizontal_alignment = 1
 autowrap_mode = 2
 
