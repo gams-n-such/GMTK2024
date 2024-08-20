@@ -3,3 +3,5 @@
 [ext_resource type="PackedScene" uid="uid://dhljesxsbvebm" path="res://Cities/city.tscn" id="1_kq7vl"]
 
 [node name="City" instance=ExtResource("1_kq7vl")]
+
+[node name="Body" parent="." index="0" groups=["Enemies"]]

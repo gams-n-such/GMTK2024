@@ -28,6 +28,13 @@ gdscript/warnings/integer_division=0
 
 enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg", "res://addons/citybuilderplugin/plugin.cfg")
 
+[global_group]
+
+Player=""
+Enemies=""
+Pickups=""
+Destructibles=""
+
 [input]
 
 up={

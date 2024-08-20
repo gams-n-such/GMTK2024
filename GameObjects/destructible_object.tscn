@@ -5,7 +5,7 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d8q5d"]
 
-[node name="DestructibleObject" type="StaticBody2D"]
+[node name="DestructibleObject" type="StaticBody2D" groups=["Destructibles"]]
 collision_layer = 32
 collision_mask = 255
 script = ExtResource("1_akytg")

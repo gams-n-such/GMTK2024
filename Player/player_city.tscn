@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cmdkf4w7cb4lm" path="res://addons/citybuilderplugin/city_block_holder.tscn" id="6_n15v5"]
 [ext_resource type="PackedScene" uid="uid://ddc653ndo7epr" path="res://CityBlocks/PlayerCore/player_core_block.tscn" id="6_ulo73"]
 
-[node name="PlayerCity" instance=ExtResource("1_oym16")]
+[node name="PlayerCity" groups=["Player"] instance=ExtResource("1_oym16")]
 script = ExtResource("2_c1uh5")
 
 [node name="Body" parent="." index="0"]
