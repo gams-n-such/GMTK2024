@@ -1,13 +1,21 @@
-extends Node2D
 class_name CityBlock
+extends Node2D
 
-# TODO: add HP
+signal destroyed(city_block : CityBlock)
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+func take_damage(damage : float, instigator : Node, causer : Node) -> void:
+	%Health.add_instant(-damage)
 
+func _on_health_value_changed(attribute: Attribute, new_value: float, old_value: float) -> void:
+	if new_value <= 0:
+		destroy()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+var _destroiyng : bool = false
+
+func destroy() -> void:
+	if _destroiyng:
+		return
+	_destroiyng = true
+	destroyed.emit(self)
+	# TODO: VFX/SFX/animation
+	queue_free()

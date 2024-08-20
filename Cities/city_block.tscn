@@ -18,6 +18,10 @@ texture = ExtResource("2_eonky")
 [node name="Health" type="Node" parent="."]
 unique_name_in_owner = true
 script = ExtResource("3_64t7v")
+_starting_value = 20.0
+max_value = 20.0
 
 [node name="CityBlockArtPlaceholder" type="Sprite2D" parent="."]
 texture = ExtResource("4_yirpe")
+
+[connection signal="value_changed" from="Health" to="." method="_on_health_value_changed"]
