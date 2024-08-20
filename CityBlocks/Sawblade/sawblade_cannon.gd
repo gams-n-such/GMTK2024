@@ -50,22 +50,26 @@ func _remove_target(target):
 		_targets.remove_at(target_idx)
 
 func _on_targeting_range_body_entered(body: Node2D) -> void:
-	if body is not City:
-		_add_target(body)
+	if body is CityMovement:
+		if body.get_parent() is not City:
+			_add_target(body.get_parent())
 
 func _on_targeting_range_body_exited(body: Node2D) -> void:
-	if body is not City:
+	if body is CityMovement:
+		if body.get_parent() is not City:
+			_remove_target(body.get_parent())
+	elif body is not City:
 		_remove_target(body)
 
 func _on_targeting_range_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
-	if body is not City:
+	if body is not CityMovement or body.get_parent() is not City:
 		return
 	var hit_city_block : Node = body.shape_owner_get_owner(body.shape_find_owner(body_shape_index))
 	_add_target(hit_city_block)
 
 
 func _on_targeting_range_body_shape_exited(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
-	if body is not City:
+	if body is not CityMovement or body.get_parent() is not City:
 		return
 	var hit_city_block : Node = body.shape_owner_get_owner(body.shape_find_owner(body_shape_index))
 	_remove_target(hit_city_block)
