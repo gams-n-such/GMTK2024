@@ -20,7 +20,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_uqjbj")
 
-[node name="Panel" type="Panel" parent="."]
+[node name="BG" type="Panel" parent="."]
 layout_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -47,6 +47,7 @@ layout_mode = 2
 text = "Start"
 
 [node name="Test" type="Button" parent="VBoxContainer"]
+visible = false
 layout_mode = 2
 text = "Test arena"
 
@@ -55,6 +56,7 @@ layout_mode = 2
 text = "How to play"
 
 [node name="Options" type="Button" parent="VBoxContainer"]
+visible = false
 layout_mode = 2
 text = "Options"
 
@@ -62,7 +64,7 @@ text = "Options"
 layout_mode = 2
 text = "Quit"
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="SplashArt" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -73,7 +75,7 @@ grow_vertical = 2
 texture = ExtResource("2_0dpxo")
 expand_mode = 1
 
-[node name="Label" type="Label" parent="."]
+[node name="Title" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -86,7 +88,7 @@ text = "ConsTRAKTOR"
 label_settings = SubResource("LabelSettings_pd7xi")
 horizontal_alignment = 1
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="BGM" type="AudioStreamPlayer" parent="."]
 
 [connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="VBoxContainer/Test" to="." method="_on_test_pressed"]
