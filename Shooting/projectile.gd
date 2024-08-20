@@ -40,12 +40,13 @@ func _on_death_timer_timeout() -> void:
 
 func _on_body_entered(body: Node) -> void:
 	if body is CityMovement:
-		_on_target_hit(body.get_parent())
+		if body.get_parent() is not City:
+			_on_target_hit(body.get_parent())
 	elif body is not City:
 		_on_target_hit(body)
 
 func _on_body_shape_entered(body_rid: RID, body: Node, body_shape_index: int, local_shape_index: int) -> void:
-	if body is not City:
+	if body is not CityMovement or body.get_parent() is not City:
 		return
 	var hit_city_block : Node = body.shape_owner_get_owner(body.shape_find_owner(body_shape_index))
 	_on_target_hit(hit_city_block)
