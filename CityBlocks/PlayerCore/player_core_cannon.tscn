@@ -9,7 +9,7 @@
 
 [sub_resource type="Resource" id="Resource_6hlcn"]
 script = ExtResource("3_aej5y")
-turning_speed = 36.0
+turning_speed = 180.0
 targeting_range = 500.0
 projectile = ExtResource("2_3ma57")
 bullets_per_series = 1
@@ -60,13 +60,7 @@ collision_base_size = 0.1
 script = ExtResource("5_cf7vw")
 c = Color(1, 0.568627, 0.168627, 1)
 
-[node name="AnimatedSprite2D" parent="Rotator" index="1"]
-animation = &""
-
-[node name="Sprite2D" parent="Rotator" index="2"]
-self_modulate = Color(1, 1, 1, 1)
-position = Vector2(64, 0)
-scale = Vector2(0.5, 0.5)
+[node name="Sprite2D" parent="Rotator" index="1"]
 texture = ExtResource("6_o5oll")
 
 [node name="Muzzle" parent="Rotator/Sprite2D" index="0"]
