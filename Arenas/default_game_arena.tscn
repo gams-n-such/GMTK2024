@@ -7,3 +7,7 @@
 
 [node name="Jihadka" parent="Logic" index="1" instance=ExtResource("2_cj0tv")]
 position = Vector2(295, 389)
+[node name="GameArena" instance=ExtResource("1_hwj5n")]
+
+[node name="GameBoundary" parent="SceneRoot" index="1"]
+arena_size = Vector2(5120, 5120)

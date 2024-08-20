@@ -1,13 +1,13 @@
 [gd_scene load_steps=5 format=3 uid="uid://vuva5gpllogw"]
 
 [ext_resource type="PackedScene" uid="uid://cm03as56e30f0" path="res://Shooting/cannon.tscn" id="1_gi7hy"]
-[ext_resource type="PackedScene" uid="uid://bwehqlwg2dn4c" path="res://Cannons/Minigun/minigun_projectile.tscn" id="2_a2sw5"]
+[ext_resource type="PackedScene" uid="uid://bwehqlwg2dn4c" path="res://CityBlocks/Minigun/minigun_projectile.tscn" id="2_a2sw5"]
 [ext_resource type="Script" path="res://Shooting/cannon_config.gd" id="3_vesi2"]
 
 [sub_resource type="Resource" id="Resource_gt6cb"]
 script = ExtResource("3_vesi2")
 turning_speed = 720.0
-range = 800.0
+targeting_range = 500.0
 projectile = ExtResource("2_a2sw5")
 bullets_per_series = 3
 reload_between_shots = 0.5

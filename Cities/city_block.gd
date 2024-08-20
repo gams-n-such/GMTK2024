@@ -8,6 +8,10 @@ signal destroyed(city_block : CityBlock)
 var is_player : bool
 func set_is_player(player : bool) -> void:
 	is_player = player
+	if is_player:
+		$Outline.self_modulate = Color.AQUA
+	else:
+		$Outline.self_modulate = Color.ORANGE_RED
 	if cannon:
 		cannon.set_is_player(player)
 
