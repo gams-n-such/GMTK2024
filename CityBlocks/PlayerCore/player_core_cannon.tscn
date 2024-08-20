@@ -9,7 +9,7 @@
 
 [sub_resource type="Resource" id="Resource_6hlcn"]
 script = ExtResource("3_aej5y")
-turning_speed = 0.0
+turning_speed = 36.0
 targeting_range = 500.0
 projectile = ExtResource("2_3ma57")
 bullets_per_series = 1

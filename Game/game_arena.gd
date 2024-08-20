@@ -18,7 +18,7 @@ func _ready():
 func _on_player_level_changed(attribute : Attribute, new_value : float, old_value : float) -> void:
 	if new_value > old_value:
 		upgrade_player()
-		%PlayerCity.camera.zoom *= 0.9 
+		%PlayerCity.camera.zoom *= 0.95 
 
 func upgrade_player() -> void:
 	var city: City = %PlayerCity
