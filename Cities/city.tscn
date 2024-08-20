@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Cities/city.gd" id="1_onjrr"]
 [ext_resource type="Script" path="res://Cities/city_movement.gd" id="2_wwfok"]
-[ext_resource type="PackedScene" uid="uid://ddc653ndo7epr" path="res://CityBlocks/PlayerCore/player_core_block.tscn" id="3_e4sed"]
+[ext_resource type="Script" path="res://Cities/hex_grid.gd" id="3_5vbtd"]
 
 [node name="City" type="Node2D"]
 script = ExtResource("1_onjrr")
@@ -12,4 +12,5 @@ collision_layer = 2
 collision_mask = 52
 script = ExtResource("2_wwfok")
 
-[node name="Core" parent="Body" instance=ExtResource("3_e4sed")]
+[node name="HexGrid" type="Node2D" parent="Body"]
+script = ExtResource("3_5vbtd")
