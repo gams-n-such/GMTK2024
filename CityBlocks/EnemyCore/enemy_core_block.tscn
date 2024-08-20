@@ -1,9 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://cfhsu4wpdxyfe"]
 
 [ext_resource type="PackedScene" uid="uid://ckgbyjxbmxc80" path="res://Cities/city_block.tscn" id="1_a2spq"]
-[ext_resource type="Texture2D" uid="uid://cclwwpct68qqk" path="res://CityBlocks/Minigun/minigun_building.png" id="2_xpsqo"]
+[ext_resource type="Texture2D" uid="uid://c2eqj4xsgyhu8" path="res://CityBlocks/EnemyCore/armor_building.png" id="2_cpljj"]
 
 [node name="CityBlock" instance=ExtResource("1_a2spq")]
 
 [node name="Building" parent="TransformBreak/StaticRoot" index="0"]
-texture = ExtResource("2_xpsqo")
+position = Vector2(0, -5)
+texture = ExtResource("2_cpljj")
