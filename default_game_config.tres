@@ -1,12 +1,25 @@
-[gd_resource type="Resource" script_class="GameConfig" load_steps=4 format=3 uid="uid://d1qrlcuxugcch"]
+[gd_resource type="Resource" script_class="GameConfig" load_steps=9 format=3 uid="uid://d1qrlcuxugcch"]
 
 [ext_resource type="Script" path="res://Game/progression_config.gd" id="1_5i5r3"]
 [ext_resource type="Script" path="res://Game/game_config.gd" id="2_1c1qx"]
+[ext_resource type="Script" path="res://Game/Random/upgrade_options_pool_entry.gd" id="3_mgvhn"]
+[ext_resource type="PackedScene" uid="uid://ddc653ndo7epr" path="res://CityBlocks/PlayerCore/player_core_block.tscn" id="4_xitfu"]
+[ext_resource type="Script" path="res://Game/Random/upgrade_options_pool.gd" id="5_srugy"]
 
 [sub_resource type="Resource" id="Resource_x662b"]
 script = ExtResource("1_5i5r3")
 exp_to_level_up = Array[int]([0, 10, 20, 30, 40, 50, 60, 70, 80, 90])
 
+[sub_resource type="Resource" id="Resource_xvk3k"]
+script = ExtResource("3_mgvhn")
+city_block = ExtResource("4_xitfu")
+weight = 1.0
+
+[sub_resource type="Resource" id="Resource_1xeeq"]
+script = ExtResource("5_srugy")
+entries = Array[ExtResource("3_mgvhn")]([SubResource("Resource_xvk3k")])
+
 [resource]
 script = ExtResource("2_1c1qx")
 progression_settings = SubResource("Resource_x662b")
+upgrade_options_chances = SubResource("Resource_1xeeq")
