@@ -13,6 +13,7 @@ func set_is_player(player : bool) -> void:
 
 func take_damage(damage : float, instigator : Node, causer : Node) -> void:
 	%Health.add_instant(-damage)
+	print(%Health.value)
 
 func _on_health_value_changed(attribute: Attribute, new_value: float, old_value: float) -> void:
 	if new_value <= 0:

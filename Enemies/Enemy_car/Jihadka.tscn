@@ -16,10 +16,16 @@ script = ExtResource("1_1g1lr")
 max_speed = 400.0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CityMovement"]
-polygon = PackedVector2Array(-1, 65, 55, 59, 122, 0, 54, -58, -1, -68, -107, -62, -107, 59)
+polygon = PackedVector2Array(4, 62, 45, 55, 109, 0, 48, -52, -2, -62, -97, -57, -94, 53)
 
 [node name="Car" type="Sprite2D" parent="CityMovement"]
 texture = ExtResource("3_74nfy")
+
+[node name="Area2D" type="Area2D" parent="CityMovement"]
+collision_layer = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CityMovement/Area2D"]
+polygon = PackedVector2Array(3, 72, 52, 59, 127, 2, 58, -59, -1, -72, -104, -63, -104, 61)
 
 [node name="EnemyController" type="Node" parent="." node_paths=PackedStringArray("controlled_unit")]
 script = ExtResource("1_s4qbu")
@@ -29,4 +35,5 @@ controlled_unit = NodePath("..")
 script = ExtResource("5_suob8")
 _starting_value = 5.0
 
+[connection signal="body_entered" from="CityMovement/Area2D" to="." method="_on_body_entered"]
 [connection signal="value_changed" from="Health" to="." method="_on_health_value_changed"]

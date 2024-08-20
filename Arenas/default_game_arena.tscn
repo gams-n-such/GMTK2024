@@ -1,5 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://cpyt5cvmylpbi"]
+[gd_scene load_steps=3 format=3 uid="uid://cpyt5cvmylpbi"]
 
 [ext_resource type="PackedScene" uid="uid://ctki8vhvpk2hb" path="res://Game/game_arena.tscn" id="1_hwj5n"]
+[ext_resource type="PackedScene" uid="uid://kjde8hyym3ix" path="res://Enemies/Enemy_car/Jihadka.tscn" id="2_cj0tv"]
 
-[node name="GameArena" instance=ExtResource("1_hwj5n")]
+[node name="GameArena2" instance=ExtResource("1_hwj5n")]
+
+[node name="Jihadka" parent="Logic" index="1" instance=ExtResource("2_cj0tv")]
+position = Vector2(295, 389)
