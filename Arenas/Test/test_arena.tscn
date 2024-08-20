@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" path="res://GameObjects/destructible_object_factory.tscn" id="3_3qjjc"]
 [ext_resource type="PackedScene" path="res://GameObjects/destructible_object_town.tscn" id="4_7f4ic"]
 [ext_resource type="PackedScene" path="res://GameObjects/destructible_object_city.tscn" id="5_lvn8i"]
-[ext_resource type="PackedScene" uid="uid://bta3w85fgsee8" path="res://Game/city_hud.tscn" id="7_bpvf6"]
+[ext_resource type="PackedScene" uid="uid://bta3w85fgsee8" path="res://UI/city_hud.tscn" id="7_bpvf6"]
 [ext_resource type="PackedScene" uid="uid://bnnwq33neholh" path="res://Pickups/Experience/pickup_experience_1.tscn" id="7_erxok"]
 [ext_resource type="PackedScene" uid="uid://meip5p2tuuaw" path="res://Pickups/Experience/pickup_experience_3.tscn" id="8_p8a3n"]
 [ext_resource type="PackedScene" uid="uid://b1ht3wltpsjp0" path="res://Pickups/Experience/pickup_experience_5.tscn" id="9_laoqd"]

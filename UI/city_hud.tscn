@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://bta3w85fgsee8"]
 
-[ext_resource type="Script" path="res://Game/city_hud.gd" id="1_lkqaf"]
-[ext_resource type="Script" path="res://Attributes/attribute_bar.gd" id="2_1mjcm"]
-[ext_resource type="Script" path="res://Attributes/attribute_label.gd" id="2_q6krm"]
+[ext_resource type="Script" path="res://UI/city_hud.gd" id="1_lkqaf"]
+[ext_resource type="Script" path="res://UI/attribute_bar.gd" id="2_1mjcm"]
+[ext_resource type="Script" path="res://UI/attribute_label.gd" id="2_q6krm"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_efbw1"]
 font_size = 32
