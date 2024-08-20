@@ -1,8 +1,8 @@
 class_name CityMovement
 extends CharacterBody2D
 
-@export var acceleration : float = 250
-@export var max_speed : float = 200
+@export var acceleration : float = 350
+@export var max_speed : float = 250
 @export var rotation_speed_degrees : float = 50
 @export var drag : float = 150 
 

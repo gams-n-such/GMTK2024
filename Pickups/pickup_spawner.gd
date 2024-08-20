@@ -18,7 +18,7 @@ func on_city_spawned(object):
 
 func on_city_destroyed(object):
 	for i in object.drop_count :
-		spawn_exp(object.position)
+		spawn_exp(object.get_node("Body").global_position)
 
 func on_jihadka_spawned(jihadka: Jihadka):
 	jihadka.destroyed.connect(on_jihadka_destroyed)

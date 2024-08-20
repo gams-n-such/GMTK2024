@@ -53,7 +53,7 @@ func _process1():
 	
 func _spawn_city_enemy():
 	var player = get_tree().get_first_node_in_group("Player").get_node("Body")
-	print("spawned city enemy")
+	#print("spawned city enemy")
 	var arena_size : Vector2 = arena.arena_size
 	var point : Vector2 = Vector2(0,0)
 	while ((point - player.global_position).length() < 500):
@@ -69,7 +69,7 @@ func _process2():
 	_spawn_not_movable_enemy()
 
 func _spawn_not_movable_enemy():
-	print("spawned not-movable enemy")
+	#print("spawned not-movable enemy")
 	var player = get_tree().get_first_node_in_group("Player").get_node("Body")
 	var arena_size : Vector2 = arena.arena_size
 	var point : Vector2 = Vector2(0,0)
@@ -84,7 +84,7 @@ func _spawn_not_movable_enemy():
 	
 
 func _spawn_jihadka():
-	print("spawned jihadka")
+	#print("spawned jihadka")
 	var arena_size : Vector2 = arena.arena_size
 	var possible_positions: Array[Vector2] = [	Vector2(arena_size.x/2 , arena_size.y/2),
 												Vector2(-arena_size.x/2 , -arena_size.y/2),

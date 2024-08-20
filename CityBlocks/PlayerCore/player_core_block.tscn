@@ -11,3 +11,7 @@ cannon = NodePath("Cannon")
 texture = ExtResource("2_fqlib")
 
 [node name="Cannon" parent="." index="3" instance=ExtResource("2_pkc60")]
+
+[node name="Health" parent="." index="4"]
+_starting_value = 50.0
+max_value = 50.0
